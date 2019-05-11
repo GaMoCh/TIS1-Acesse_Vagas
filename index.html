@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
-    <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas</title>
-  </head>
-  <body></body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/js/uikit-icons.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"
+        integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous">
+    </script>
+    <script src="uikit/dist/js/uikit-icons.min.js"></script>
+    <title>Login</title>
+</head>
+
+<body class="uk-position-center  uk-padding-small">
+    <div class="uk-margin-small">
+        <h2 class="uk-text-center">Entrar</h2>
+        <form>
+            <div class="uk-inline uk-display-block uk-margin-small">
+                <span class="uk-form-icon" uk-icon="user"></span>
+                <input type="" class="uk-input uk-form-width-medium"
+                    placeholder="Cpf / Cnpj">
+            </div>
+            <div class="uk-inline uk-display-block uk-margin-small">
+                <span class="uk-form-icon" uk-icon="lock"></span>
+                <input type="password" class="uk-input uk-form-width-medium" placeholder="Senha">
+            </div>
+            <button class="uk-button uk-button-primary uk-prima uk-form-width-medium">Entrar <i class="fas fa-sign-in-alt"></i></button>
+            <a href="#" class="uk-display-block">Esqueci minha senha <i class="far fa-question-circle"></i></a>
+        </form>
+    </div>
+</body>
+
 </html>
