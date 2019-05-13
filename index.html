@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css" />
-    <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
-    <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
-    <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas</title>
-  </head>
-  <body></body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <title>Cadastro de Usuário</title>
+</head>
+
+<body>
+
+    <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Usuários</h1>
+
+    <div class="uk-container uk-container-small">
+
+        <form class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2">
+                    <div class="uk-form-label uk-text-meta">Nome:</div>
+                <input class="uk-input" type="text" placeholder="Ex: Maria">
+            </div>
+            <div class="uk-width-1-2">
+                    <div class="uk-form-label uk-text-meta">E-mail:</div>
+                <input class="uk-input" type="email" placeholder="Ex: email@email.com">
+            </div>
+            <div class="uk-width-1-4@s uk-width-1-4@m">
+                    <div class="uk-form-label uk-text-meta">CPF:</div>
+                <input class="uk-input" type="number" placeholder="XXX.XXX.XXX-XX">
+            </div>
+            <div class="uk-width-1-4@s uk-width-1-4@m">
+                    <div class="uk-form-label uk-text-meta">RG:</div>
+                <input class="uk-input" type="text" placeholder="XX-XX.XXX.XXX">
+            </div>
+            <div class="uk-form-label uk-text-meta">Sexo:</div>
+            <div class="uk-form-controls uk-form-controls-text ">
+                <label><input class="uk-radio" type="radio" name="radio1"> Feminino</label><br>
+                <label><input class="uk-radio" type="radio" name="radio1"> Masculino</label><br>
+                <label><input class="uk-radio" type="radio" name="radio1"> Outro</label>
+            </div>
+            <div class="uk-width-1-4@s uk-width-1-4@m">
+                    <div class="uk-form-label uk-text-meta">Cidade:</div>
+                <div class="uk-form-controls">
+                    <select class="uk-select" id="form-horizontal-select">
+                        <option>Belo Horizonte</option>
+                        <option>Contagem</option>
+                        <option>Betim</option>
+                        <option>Sarzedo</option>
+                        <option>Ibirité</option>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-width-1-4@s uk-width-1-4@m">
+                    <div class="uk-form-label uk-text-meta">Nascimento:</div>
+                <input class="uk-input" type="date" placeholder="DD/MM/AA">
+            </div>
+            <div class="uk-width-1-2@s uk-width-1-4@m">
+                    <div class="uk-form-label uk-text-meta">Profissão</div>
+                    <input class="uk-input" type="text" placeholder="Ex: Padeiro">
+                </div>
+                <div class="uk-width-1-2@s uk-width-1-4@m">
+                        <div class="uk-form-label uk-text-meta">Telefone:</div>
+                        <input class="uk-input" type="tel" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-4@m">
+                            <div class="uk-form-label uk-text-meta">Senha:</div>
+                            <input class="uk-input" type="password" placeholder="">
+                                </div>
+                        </div>
+
+                        <button class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center" type="submit">Cadastrar</button>
+        </form>
+
+    </div>
+
+
+</body>
+
 </html>
