@@ -21,6 +21,7 @@
     <title>Acesse Vagas</title>
   </head>
   <body>
+    <!-- HEADER -->
     <header>
       <nav class="uk-navbar-container" uk-navbar>
         <!-- LOGO -->
@@ -44,7 +45,37 @@
             <li>
               <a class="uk-parent" href="javascript:void(0)">Entrar</a>
               <div class="uk-navbar-dropdown">
-                <ul class="uk-nav uk-navbar-dropdown-nav"></ul>
+                <div>
+                  <h2 class="uk-text-center">Entrar</h2>
+                  <form>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="user"></span>
+                      <input
+                        class="uk-input uk-form-width-medium"
+                        type="text"
+                        placeholder="Cpf / Cnpj"
+                      />
+                    </div>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="lock"></span>
+                      <input
+                        class="uk-input uk-form-width-medium"
+                        type="password"
+                        placeholder="Senha"
+                      />
+                    </div>
+                    <button
+                      class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
+                      type="submit"
+                    >
+                      <span>Entrar</span>
+                      <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    <a href="#" class="uk-display-block">
+                      <span>Esqueci minha senha</span>
+                    </a>
+                  </form>
+                </div>
               </div>
             </li>
           </ul>
