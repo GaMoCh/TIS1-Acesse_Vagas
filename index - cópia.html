@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+    <title>Cadastro de Usuário</title>
+</head>
+
+<body>
+
+    <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Empresas</h1>
+
+    <div class="uk-container uk-container-small">
+
+        <form class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2">
+                    <div class="uk-form-label uk-text-meta">Nome da empresa:</div>
+                <input class="uk-input" type="text" placeholder="Ex: Alpha Negócios">
+            </div>
+            <div class="uk-width-1-2">
+                    <div class="uk-form-label uk-text-meta">E-mail:</div>
+                <input class="uk-input" type="email" placeholder="Ex: email@email.com">
+            </div>
+            <div class="uk-width-1-3@s uk-width-1-2@m">
+                    <div class="uk-form-label uk-text-meta">CNPJ:</div>
+                <input class="uk-input" type="number" placeholder="XX.XXX.XXX/XXXX-XX">
+            </div>
+
+            <div class="uk-width-1-3@s uk-width-1-2@m">
+                    <div class="uk-form-label uk-text-meta">Cidade:</div>
+                <div class="uk-form-controls">
+                    <select class="uk-select" id="form-horizontal-select">
+                        <option>Belo Horizonte</option>
+                        <option>Contagem</option>
+                        <option>Betim</option>
+                        <option>Sarzedo</option>
+                        <option>Ibirité</option>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-width-1-3@s uk-width-1-3@m">
+                    <div class="uk-form-label uk-text-meta">Responsável:</div>
+                <input class="uk-input" type="text" placeholder="Ex: José">
+            </div>
+                <div class="uk-width-1-2@s uk-width-1-3@m">
+                        <div class="uk-form-label uk-text-meta">Telefone:</div>
+                        <input class="uk-input" type="tel" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+                    <div class="uk-width-1-2@s uk-width-1-3@m">
+                            <div class="uk-form-label uk-text-meta">Senha:</div>
+                            <input class="uk-input" type="password" placeholder="">
+                                </div>
+                        </div>
+
+                        <button class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center" type="submit">Cadastrar</button>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
