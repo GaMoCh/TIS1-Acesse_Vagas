@@ -23,7 +23,7 @@
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
     <header>
-      <nav class="uk-navbar-container" uk-navbar>
+      <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
         <!-- LOGO -->
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="/">
@@ -44,8 +44,13 @@
           <ul class="uk-navbar-nav">
             <li>
               <a class="uk-parent" href="javascript:void(0)">Entrar</a>
-              <div class="uk-navbar-dropdown uk-navbar-dropdown-width-2">
-                <div>
+              <div
+                class="uk-navbar-dropdown uk-width-medium"
+                boundary="body"
+                boundary-align
+                pos="bottom-center"
+              >
+                <section>
                   <h2 class="uk-text-center">Entrar</h2>
                   <form>
                     <div class="uk-inline uk-margin-small-bottom">
@@ -74,20 +79,47 @@
                     <a href="#" class="uk-display-block uk-link-reset uk-text-center">
                       <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
                     </a>
-                    <hr class="uk-divider-icon" />
-                    <div class="uk-text-center">
-                      <span class="uk-text-small">Não possui uma conta?</span>
-                      <a href="/pages/cadastro" class="uk-link-reset uk-text-center">
-                        <span class="uk-text-primary">Cadastrar</span>
-                      </a>
-                    </div>
                   </form>
-                </div>
+                </section>
+              </div>
+            </li>
+            <li>
+              <a class="uk-parent" href="javascript:void(0)">Cadastrar</a>
+              <div
+                class="uk-navbar-dropdown uk-width-xxlarge"
+                boundary="body"
+                boundary-align
+                pos="bottom-center"
+              >
+                <section class="uk-column-1-2@l uk-column-divider">
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/empresa" class="uk-link-heading">
+                      <i class="fas fa-user-tie fa-4x uk-flex"></i>
+                      <br />
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como empresa</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <hr class="uk-hidden@l" />
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/usuario" class="uk-link-heading">
+                      <i class="fas fa-user fa-4x uk-flex"></i>
+                      <br />
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como usuário</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                </section>
               </div>
             </li>
           </ul>
         </div>
       </nav>
+      <section class="uk-navbar-dropbar"></section>
     </header>
 
     <!-- MAIN -->
