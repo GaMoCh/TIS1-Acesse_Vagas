@@ -1,40 +1,61 @@
-(function() {
-  var ui = new firebaseui.auth.AuthUI(firebase.auth());
-  var uiConfig = {
-    callbacks: {
-      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-        // User successfully signed in.
-        // Return type determines whether we continue the redirect automatically
-        // or whether we leave that to developer to handle.
-        document.querySelector('header .uk-navbar-dropbar').style.height = '0px';
-        document.getElementById('login-link').style.display = 'none';
-        document.getElementById('firebaseui-auth-container').style.display = 'none';
-        document.getElementById('welcome-text').classList.remove('uk-hidden');
+$(document).ready(() => {
 
-        // Hide welcome text after 5 seconds
-        setTimeout(() => {
-          document.getElementById('welcome-text').classList.add('uk-hidden');
-        }, 5000);
+  const onLoginSuccessful = (user) => {
 
-        return true;
-      },
-      uiShown: function() {
-        // The widget is rendered.
-        // Hide the loader.
-        document.getElementById('loader').style.display = 'none';
-      }
-    },
-    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    signInFlow: 'popup',
-    signInSuccessUrl: '#',
-    signInOptions: [
-      // Leave the lines as is for the providers you want to offer your users.
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    tosUrl: '#',
-    // Privacy policy url.
-    privacyPolicyUrl: '<your-privacy-policy-url>'
+    if (location.href !== `${location.origin}/`) {
+      location.href = `${location.origin}/`;
+    } else {
+      $('#login-link').addClass('uk-hidden');
+      $('#register-link').addClass('uk-hidden');
+      
+      $('header .uk-navbar-dropbar').css('height', '0px');
+
+      $('#welcome-text-wrapper').removeClass('uk-hidden');
+      $('#logout-link').removeClass('uk-hidden');
+      
+      setTimeout(() => {
+        $('#welcome-text-wrapper').addClass('uk-hidden');
+      }, 5000);
+    }
+
   };
-  ui.start('#firebaseui-auth-container', uiConfig);
-})();
+
+  const onLoginError = () => {
+    $('#login-error-msg').removeClass('uk-hidden');
+    setTimeout(() => {
+      $('#login-error-msg').addClass('uk-hidden');
+    }, 5000);
+  };
+
+  $('#login-button').on('click', () => {
+
+    const cpf = $('#user-id').val();
+    const password = $('#password').val();
+
+    db.collection("users")
+      .where('id', '==', cpf)
+      .where('password', '==', password)
+      .get()
+      .then((result) => {
+        const doesUserExist = result.docs && result.docs.length > 0;
+        if (doesUserExist && result.docs[0].exists) {
+          const { email, password } = result.docs[0].data();
+          firebase.auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((data) => {
+              sessionStorage.setItem('auth-token', data.user.ra);
+              onLoginSuccessful();
+             })
+            .catch(function(error) {
+              onLoginError();
+            });
+          
+        } else {
+          onLoginError();
+        }
+
+      });
+
+  });
+
+})

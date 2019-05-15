@@ -6,18 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/firebase.js"></script>
+    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/registerCompany.js"></script>
     <title>Acesse Vagas - Cadastro de empresa</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
@@ -42,8 +44,8 @@
         <!-- ENTRAR -->
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-            <li>
-              <a class="uk-parent" href="javascript:void(0)">Entrar</a>
+            <li id="login-link">
+              <a id="login-text" class="uk-parent" href="javascript:void(0)">Entrar</a>
               <div
                 class="uk-navbar-dropdown uk-width-medium"
                 boundary="body"
@@ -56,6 +58,7 @@
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
+                        id="user-id"
                         class="uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
@@ -64,18 +67,23 @@
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="lock"></span>
                       <input
+                        id="password"
                         class="uk-input uk-form-width-large"
                         type="password"
                         placeholder="Senha"
                       />
                     </div>
                     <button
+                      id="login-button"
                       class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
-                      type="submit"
+                      type="button"
                     >
-                      <span>Entrar</span>
+                      <span id="page">Entrar</span>
                       <i class="fas fa-sign-in-alt"></i>
                     </button>
+                    <div id="login-error-msg" class="uk-text-center uk-hidden">
+                      <span class="uk-text-small uk-text-danger">CPF/CNPJ ou senha inválidos</span>
+                    </div>
                     <a href="#" class="uk-display-block uk-link-reset uk-text-center">
                       <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
                     </a>
@@ -130,20 +138,20 @@
         <form class="uk-grid-small" uk-grid>
           <div class="uk-width-1-2">
             <div class="uk-form-label uk-text-meta">Nome da empresa:</div>
-            <input class="uk-input" type="text" placeholder="Ex: Alpha Negócios" />
+            <input class="uk-input" name="name" type="text" placeholder="Ex: Alpha Negócios" />
           </div>
           <div class="uk-width-1-2">
             <div class="uk-form-label uk-text-meta">E-mail:</div>
-            <input class="uk-input" type="email" placeholder="Ex: email@email.com" />
+            <input class="uk-input" name="email" type="email" placeholder="Ex: email@email.com" />
           </div>
           <div class="uk-width-1-3@s uk-width-1-2@m">
             <div class="uk-form-label uk-text-meta">CNPJ:</div>
-            <input class="uk-input" type="number" placeholder="XX.XXX.XXX/XXXX-XX" />
+            <input class="uk-input" name="number" type="number" placeholder="XX.XXX.XXX/XXXX-XX" />
           </div>
           <div class="uk-width-1-3@s uk-width-1-2@m">
             <div class="uk-form-label uk-text-meta">Cidade:</div>
             <div class="uk-form-controls">
-              <select class="uk-select" id="form-horizontal-select">
+              <select class="uk-select" name="city" id="form-horizontal-select">
                 <option>Belo Horizonte</option>
                 <option>Contagem</option>
                 <option>Betim</option>
@@ -154,15 +162,15 @@
           </div>
           <div class="uk-width-1-3@s uk-width-1-3@m">
             <div class="uk-form-label uk-text-meta">Responsável:</div>
-            <input class="uk-input" type="text" placeholder="Ex: José" />
+            <input class="uk-input" name="responsible" type="text" placeholder="Ex: José" />
           </div>
           <div class="uk-width-1-2@s uk-width-1-3@m">
             <div class="uk-form-label uk-text-meta">Telefone:</div>
-            <input class="uk-input" type="tel" placeholder="(XX) XXXXX-XXXX" />
+            <input class="uk-input" name="phone" type="tel" placeholder="(XX) XXXXX-XXXX" />
           </div>
           <div class="uk-width-1-2@s uk-width-1-3@m">
             <div class="uk-form-label uk-text-meta">Senha:</div>
-            <input class="uk-input" type="password" placeholder="" />
+            <input class="uk-input" name="password" type="password" placeholder="" />
           </div>
           <button
             class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"

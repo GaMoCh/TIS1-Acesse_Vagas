@@ -11,16 +11,14 @@
       rel="stylesheet"
       href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
     />
-
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
@@ -33,7 +31,7 @@
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
     <header>
-      <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
+      <nav   class="uk-navbar-container" uk-navbar dropbar mode="click">
         <!-- LOGO -->
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="/">
@@ -52,7 +50,7 @@
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
             <li id="login-link">
-              <a class="uk-parent" href="javascript:void(0)">Entrar</a>
+              <a id="login-text" class="uk-parent" href="javascript:void(0)">Entrar</a>
               <div
                 class="uk-navbar-dropdown uk-width-medium"
                 boundary="body"
@@ -60,11 +58,12 @@
                 pos="bottom-center"
               >
                 <section>
-                  <!-- <h2 class="uk-text-center">Entrar</h2> -->
-                  <!-- <form>
+                  <h2 id="login-text" class="uk-text-center">Entrar</h2>
+                  <form>
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
+                        id="user-id"
                         class="uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
@@ -73,29 +72,33 @@
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="lock"></span>
                       <input
+                        id="password"
                         class="uk-input uk-form-width-large"
                         type="password"
                         placeholder="Senha"
                       />
                     </div>
                     <button
+                      id="login-button"
                       class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
-                      type="submit"
+                      type="button"
                     >
-                      <span>Entrar</span>
+                      <span id="page">Entrar</span>
                       <i class="fas fa-sign-in-alt"></i>
                     </button>
+                    <div id="login-error-msg" class="uk-text-center uk-hidden">
+                      <span class="uk-text-small uk-text-danger">CPF/CNPJ ou senha inválidos</span>
+                    </div>
                     <a href="#" class="uk-display-block uk-link-reset uk-text-center">
                       <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
                     </a>
-                  </form> -->
+                  </form>
                 </section>
-                <div id="firebaseui-auth-container"></div>
-                <div id="loader">Loading...</div>
               </div>
             </li>
             <li>
-              <a class="uk-parent" href="javascript:void(0)">Cadastrar</a>
+              <a id="logout-link" class="uk-parent uk-hidden" href="javascript:void(0)">Sair</a>
+              <a id="register-link" class="uk-parent" href="javascript:void(0)">Cadastrar</a>
               <div
                 class="uk-navbar-dropdown uk-width-xxlarge"
                 boundary="body"
@@ -135,8 +138,8 @@
 
     <!-- MAIN -->
     <main>
-      <div class="uk-text-center">
-        <h1 id="welcome-text" class="uk-hidden">Bem vindo!</h1>
+      <div id="welcome-text-wrapper" class="uk-text-center uk-hidden">
+        <h2 >Bem vindo!</h2>
       </div>
       <!-- QUEM SOMOS -->
       <section
