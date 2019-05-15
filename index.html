@@ -6,18 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script> -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"
+    />
+
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
-    <script src="/assets/js/script.js"></script>
+
+    <script src="/assets/js/firebase.js"></script>
+    <script src="/assets/js/login.js"></script>
     <title>Acesse Vagas</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
@@ -38,11 +48,10 @@
             <li><a href="/pages/vagas">Vagas</a></li>
           </ul>
         </div>
-
         <!-- ENTRAR -->
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-            <li>
+            <li id="login-link">
               <a class="uk-parent" href="javascript:void(0)">Entrar</a>
               <div
                 class="uk-navbar-dropdown uk-width-medium"
@@ -51,8 +60,8 @@
                 pos="bottom-center"
               >
                 <section>
-                  <h2 class="uk-text-center">Entrar</h2>
-                  <form>
+                  <!-- <h2 class="uk-text-center">Entrar</h2> -->
+                  <!-- <form>
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
@@ -79,8 +88,10 @@
                     <a href="#" class="uk-display-block uk-link-reset uk-text-center">
                       <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
                     </a>
-                  </form>
+                  </form> -->
                 </section>
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
               </div>
             </li>
             <li>
@@ -124,6 +135,9 @@
 
     <!-- MAIN -->
     <main>
+      <div class="uk-text-center">
+        <h1 id="welcome-text" class="uk-hidden">Bem vindo!</h1>
+      </div>
       <!-- QUEM SOMOS -->
       <section
         id="quemSomos"

@@ -1,0 +1,40 @@
+(function() {
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+  var uiConfig = {
+    callbacks: {
+      signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+        // User successfully signed in.
+        // Return type determines whether we continue the redirect automatically
+        // or whether we leave that to developer to handle.
+        document.querySelector('header .uk-navbar-dropbar').style.height = '0px';
+        document.getElementById('login-link').style.display = 'none';
+        document.getElementById('firebaseui-auth-container').style.display = 'none';
+        document.getElementById('welcome-text').classList.remove('uk-hidden');
+
+        // Hide welcome text after 5 seconds
+        setTimeout(() => {
+          document.getElementById('welcome-text').classList.add('uk-hidden');
+        }, 5000);
+
+        return true;
+      },
+      uiShown: function() {
+        // The widget is rendered.
+        // Hide the loader.
+        document.getElementById('loader').style.display = 'none';
+      }
+    },
+    // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+    signInFlow: 'popup',
+    signInSuccessUrl: '#',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    // Terms of service url.
+    tosUrl: '#',
+    // Privacy policy url.
+    privacyPolicyUrl: '<your-privacy-policy-url>'
+  };
+  ui.start('#firebaseui-auth-container', uiConfig);
+})();
