@@ -17,8 +17,9 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/registerUser.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas</title>
+    <title>Acesse Vagas - Cadastro de usuário</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -148,65 +149,81 @@
 
     <!-- MAIN -->
     <main>
-      <!-- QUEM SOMOS -->
-      <section
-        id="quemSomos"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- QUEM SOMOS - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>QUEM SOMOS</h2>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Usuário</h1>
+
+      <div class="uk-container uk-container-small">
+        <form class="uk-grid-small" uk-grid>
+          <div class="uk-width-1-2">
+            <div class="uk-form-label uk-text-meta">Nome:</div>
+            <input class="uk-input" name="name" type="text" placeholder="Ex: Maria" />
           </div>
-        </div>
-
-        <!-- QUEM SOMOS - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
-            Deficiência. Independente da sua qualificação profissional, a sua oportunidade estará
-            aqui. Através do preenchimento do curriculum online. O nosso software irá analisar as
-            suas qualidades técnicas e sincronizará com as vagas disponíveis nas empresas
-            cadastradas no nosso banco de dados.
-          </p>
-          <p class="custom-text-indent">
-            Assim, sem sair de casa a oportunidade do emprego dos seus sonhos baterá em sua porta.
-            Quando as pessoas têm oportunidades de mostrar o pontencial, é possível encontrar os
-            empregos dos sonhos. As oportunidades surgem, as portas se abrem e os sonhos se tornam
-            realidade. Essa tecnologia, começa a mostrar aos trabalhadores e as empresas a forma
-            fácil de localizar os seus pares perfeitos. Assim, possibilitamos as conexões entre
-            profisssionais e empresas.
-          </p>
-        </div>
-      </section>
-
-      <!-- LEGISLAÇÃO -->
-      <section
-        id="legislacao"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- LEGISLAÇÃO - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>LEGISLAÇÃO</h2>
+          <div class="uk-width-1-2">
+            <div class="uk-form-label uk-text-meta">E-mail:</div>
+            <input class="uk-input" name="email" type="email" placeholder="Ex: email@email.com" />
           </div>
-        </div>
-
-        <!-- LEGISLAÇÃO - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2%
-            (dois por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados
-            ou pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
-          </p>
-          <ol type="I">
-            <li><span>até 200 empregados</span><span>.....2%;</span></li>
-            <li><span>de 201 a 500</span><span>.....................3%;</span></li>
-            <li><span>de 501 a 1.000</span><span>..................4%;</span></li>
-            <li><span>de 1.001 em diante</span><span>.........5%</span></li>
-          </ol>
-        </div>
-      </section>
+          <div class="uk-width-1-4@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">CPF:</div>
+            <input class="uk-input" name="cpf" type="number" placeholder="XXX.XXX.XXX-XX" />
+          </div>
+          <div class="uk-width-1-4@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">RG:</div>
+            <input class="uk-input" cpf="rg" type="text" placeholder="XX-XX.XXX.XXX" />
+          </div>
+          <div class="uk-form-label uk-text-meta">Sexo:</div>
+          <div class="uk-form-controls uk-form-controls-text ">
+            <label><input class="uk-radio" type="radio" name="radio1" /> Feminino</label><br />
+            <label><input class="uk-radio" type="radio" name="radio1" /> Masculino</label><br />
+            <label><input class="uk-radio" type="radio" name="radio1" /> Outro</label>
+          </div>
+          <div class="uk-width-1-4@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">Cidade:</div>
+            <div class="uk-form-controls">
+              <select class="uk-select" name="city" id="form-horizontal-select">
+                <option>Belo Horizonte</option>
+                <option>Contagem</option>
+                <option>Betim</option>
+                <option>Sarzedo</option>
+                <option>Ibirité</option>
+              </select>
+            </div>
+          </div>
+          <div class="uk-width-1-4@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">Nascimento:</div>
+            <input class="uk-input" name="birthday" type="date" placeholder="DD/MM/AA" />
+          </div>
+          <div class="uk-width-1-2@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">Profissão</div>
+            <input class="uk-input" name="profession" type="text" placeholder="Ex: Padeiro" />
+          </div>
+          <div class="uk-width-1-2@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">
+              Telefone:
+              <input
+                class="uk-input"
+                name="phone-number"
+                type="tel"
+                placeholder="(XX) XXXXX-XXXX"
+              />
+            </div>
+          </div>
+          <div class="uk-width-1-2@s uk-width-1-4@m">
+            <div class="uk-form-label uk-text-meta">
+              Senha:
+              <input class="uk-input" name="password" type="password" placeholder="" />
+            </div>
+          </div>
+          <div id="register-error-wrapper" class="uk-width-1-1 uk-text-center uk-hidden">
+            <span id="user-register-error" class="uk-text-small uk-text-danger"></span>
+          </div>
+          <button
+            id="register-user-btn"
+            class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
+            type="button"
+          >
+            Cadastrar
+          </button>
+        </form>
+      </div>
     </main>
 
     <!-- FOOTER -->
