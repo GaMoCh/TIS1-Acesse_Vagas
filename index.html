@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
     <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="/assets/css/style.min.css" />
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-database.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-storage.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-messaging.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-functions.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="/assets/js/firebase.js"></script>
+    <script src="/assets/js/login.js"></script>
     <script src="/assets/js/script.js"></script>
     <title>Acesse Vagas</title>
   </head>
@@ -35,27 +35,28 @@
         <!-- MENU -->
         <div class="uk-navbar-center">
           <ul class="uk-navbar-nav">
-            <li><a href="/pages/vagas">Vagas</a></li>
+            <li><a class="uk-navbar-item uk-visible@m" href="/pages/vagas">Vagas</a></li>
           </ul>
         </div>
 
         <!-- ENTRAR -->
         <div class="uk-navbar-right">
           <ul class="uk-navbar-nav">
-            <li>
-              <a class="uk-parent" href="javascript:void(0)">Entrar</a>
+            <li id="signIn-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)">Entrar</a>
               <div
-                class="uk-navbar-dropdown uk-width-medium"
+                class="uk-navbar-dropdown uk-width-1-1"
                 boundary="body"
                 boundary-align
                 pos="bottom-center"
               >
-                <section>
+                <section class="uk-width-medium uk-margin-auto">
                   <h2 class="uk-text-center">Entrar</h2>
                   <form>
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
+                        id="user-id"
                         class="uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
@@ -64,14 +65,16 @@
                     <div class="uk-inline uk-margin-small-bottom">
                       <span class="uk-form-icon" uk-icon="lock"></span>
                       <input
+                        id="password"
                         class="uk-input uk-form-width-large"
                         type="password"
                         placeholder="Senha"
                       />
                     </div>
                     <button
+                      id="login-button"
                       class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
-                      type="submit"
+                      type="button"
                     >
                       <span>Entrar</span>
                       <i class="fas fa-sign-in-alt"></i>
@@ -83,15 +86,19 @@
                 </section>
               </div>
             </li>
-            <li>
-              <a class="uk-parent" href="javascript:void(0)">Cadastrar</a>
+
+            <!-- CADASTRAR -->
+            <li id="signUp-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)"
+                >Cadastrar</a
+              >
               <div
-                class="uk-navbar-dropdown uk-width-xxlarge"
+                class="uk-navbar-dropdown uk-width-1-1"
                 boundary="body"
                 boundary-align
                 pos="bottom-center"
               >
-                <section class="uk-column-1-2@l uk-column-divider">
+                <section class="uk-column-1-2@l uk-column-divider uk-width-xxlarge uk-margin-auto">
                   <div class="uk-flex uk-flex-center">
                     <a href="/pages/cadastro/empresa" class="uk-link-heading">
                       <i class="fas fa-user-tie fa-4x uk-flex"></i>
@@ -117,10 +124,27 @@
               </div>
             </li>
           </ul>
+          <a
+            class="uk-navbar-toggle uk-hidden@m"
+            href="javascript:void(0)"
+            uk-navbar-toggle-icon
+            uk-toggle
+            target="#offCanvas"
+          ></a>
         </div>
       </nav>
       <section class="uk-navbar-dropbar"></section>
     </header>
+
+    <!-- OFF-CANVAS -->
+    <section id="offCanvas" uk-offcanvas overlay flip mode="push">
+      <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <nav class="uk-margin-auto-vertical">
+          <ul id="offCanvasMenu" class="uk-nav uk-nav-primary uk-nav-center"></ul>
+        </nav>
+      </div>
+    </section>
 
     <!-- MAIN -->
     <main>
@@ -186,42 +210,44 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="uk-section-muted uk-flex uk-flex-around uk-flex-wrap">
-      <!-- CONTATOS - REDES SOCIAIS -->
-      <section>
-        <!-- FACEBOOK -->
-        <div class="uk-inline uk-padding-small">
-          <a class="uk-link-reset" href="#" uk-icon="facebook"></a>
-        </div>
+    <footer>
+      <section class="uk-section-muted uk-flex uk-flex-around uk-flex-wrap">
+        <!-- CONTATOS - REDES SOCIAIS -->
+        <section>
+          <!-- FACEBOOK -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="facebook"></a>
+          </div>
 
-        <!-- TWITTER -->
-        <div class="uk-inline uk-padding-small">
-          <a class="uk-link-reset" href="#" uk-icon="twitter"></a>
-        </div>
+          <!-- TWITTER -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="twitter"></a>
+          </div>
 
-        <!-- LINKEDIN -->
-        <div class="uk-inline uk-padding-small">
-          <a class="uk-link-reset" href="#" uk-icon="linkedin"></a>
-        </div>
-      </section>
+          <!-- LINKEDIN -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="linkedin"></a>
+          </div>
+        </section>
 
-      <!-- CONTATOS - COMUNICAÇÃO -->
-      <section>
-        <!-- E-MAIL -->
-        <div class="uk-inline uk-padding-small">
-          <a class="uk-link-reset" href="mailto:foo@bar.com">
-            <span uk-icon="mail"></span>
-            <span>foo@bar.com</span>
-          </a>
-        </div>
+        <!-- CONTATOS - COMUNICAÇÃO -->
+        <section>
+          <!-- E-MAIL -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="mailto:foo@bar.com">
+              <span uk-icon="mail"></span>
+              <span>foo@bar.com</span>
+            </a>
+          </div>
 
-        <!-- TELEFONE -->
-        <div class="uk-inline uk-padding-small">
-          <a class="uk-link-reset" href="tel:+5531987654321">
-            <span uk-icon="receiver"></span>
-            <span>+55 31 98765-4321</span>
-          </a>
-        </div>
+          <!-- TELEFONE -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="tel:+5531987654321">
+              <span uk-icon="receiver"></span>
+              <span>+55 31 98765-4321</span>
+            </a>
+          </div>
+        </section>
       </section>
     </footer>
   </body>
