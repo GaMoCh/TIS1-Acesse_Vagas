@@ -17,8 +17,9 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/opportunities.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas</title>
+    <title>Acesse Vagas - Vagas</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -146,67 +147,103 @@
       </div>
     </section>
 
+    <!-- ASIDE -->
+    <aside>
+      <section
+        id="search-section"
+        class="uk-column-1-1 uk-column-1-2@s uk-column-divider uk-card uk-card-default uk-card-body uk-margin-large"
+      >
+        <div id="search-wrapper">
+          <div class="uk-tile">
+            <p class="uk-h3 uk-text-center">Busque vaga de emprego para PcD:</p>
+          </div>
+          <div class="uk-child-width-1-1">
+            <form class="uk-search uk-search-navbar uk-child-width-1-1">
+              <span uk-search-icon></span>
+              <input
+                id="opportunitySearch"
+                class="input-filter uk-search-input"
+                type="search"
+                placeholder="Pesquisar vaga"
+              />
+            </form>
+          </div>
+        </div>
+        <div id="filter-wrapper" class="uk-child-width-1-2" uk-grid>
+          <div class="uk-tile">
+            <p class="uk-h4">Salário</p>
+            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="5000"
+                  data-sign="<="
+                  checked
+                />
+                Até R$5.000,00</label
+              >
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="10000"
+                  data-sign="<="
+                  checked
+                />
+                Até R$10.000,00</label
+              >
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="10000"
+                  data-sign=">"
+                  checked
+                />
+                Acima de R$10.000,00</label
+              >
+            </div>
+          </div>
+          <div class="uk-tile">
+            <p class="uk-h4">Escolaridade</p>
+            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Fundamental"
+                  checked
+                />
+                Ensino Fundamental</label
+              >
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Médio"
+                  checked
+                />
+                Ensino Médio</label
+              >
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Superior"
+                  checked
+                />
+                Ensino Superior</label
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
     <!-- MAIN -->
     <main>
-      <!-- QUEM SOMOS -->
-      <section
-        id="quemSomos"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- QUEM SOMOS - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>QUEM SOMOS</h2>
-          </div>
-        </div>
-
-        <!-- QUEM SOMOS - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
-            Deficiência. Independente da sua qualificação profissional, a sua oportunidade estará
-            aqui. Através do preenchimento do curriculum online. O nosso software irá analisar as
-            suas qualidades técnicas e sincronizará com as vagas disponíveis nas empresas
-            cadastradas no nosso banco de dados.
-          </p>
-          <p class="custom-text-indent">
-            Assim, sem sair de casa a oportunidade do emprego dos seus sonhos baterá em sua porta.
-            Quando as pessoas têm oportunidades de mostrar o pontencial, é possível encontrar os
-            empregos dos sonhos. As oportunidades surgem, as portas se abrem e os sonhos se tornam
-            realidade. Essa tecnologia, começa a mostrar aos trabalhadores e as empresas a forma
-            fácil de localizar os seus pares perfeitos. Assim, possibilitamos as conexões entre
-            profisssionais e empresas.
-          </p>
-        </div>
-      </section>
-
-      <!-- LEGISLAÇÃO -->
-      <section
-        id="legislacao"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- LEGISLAÇÃO - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>LEGISLAÇÃO</h2>
-          </div>
-        </div>
-
-        <!-- LEGISLAÇÃO - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2%
-            (dois por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados
-            ou pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
-          </p>
-          <ol type="I">
-            <li><span>até 200 empregados</span><span>.....2%;</span></li>
-            <li><span>de 201 a 500</span><span>.....................3%;</span></li>
-            <li><span>de 501 a 1.000</span><span>..................4%;</span></li>
-            <li><span>de 1.001 em diante</span><span>.........5%</span></li>
-          </ol>
-        </div>
-      </section>
+      <section id="opportunityList"></section>
     </main>
 
     <!-- FOOTER -->
