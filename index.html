@@ -17,9 +17,8 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
-    <script src="/assets/js/registerCompany.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas - Cadastro de empresa</title>
+    <title>Acesse Vagas</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -149,69 +148,65 @@
 
     <!-- MAIN -->
     <main>
-      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Empresa</h1>
+      <!-- QUEM SOMOS -->
+      <section
+        id="quemSomos"
+        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
+      >
+        <div class="uk-flex uk-flex-center uk-flex-middle">
+          <!-- QUEM SOMOS - TÍTULO -->
+          <div class="uk-text-center">
+            <h2>QUEM SOMOS</h2>
+          </div>
+        </div>
 
-      <div class="uk-container uk-container-small">
-        <form class="uk-grid-small" uk-grid>
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Cargo</div>
-            <input class="uk-input" name="name" type="text" placeholder="Ex.: Secretaria" />
-          </div>
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Salário</div>
-            <input class="uk-input" type="text" placeholder="R$ xxxx.xx" />
-          </div>
+        <!-- QUEM SOMOS - TEXTO -->
+        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
+          <p class="custom-text-indent">
+            Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
+            Deficiência. Independente da sua qualificação profissional, a sua oportunidade estará
+            aqui. Através do preenchimento do curriculum online. O nosso software irá analisar as
+            suas qualidades técnicas e sincronizará com as vagas disponíveis nas empresas
+            cadastradas no nosso banco de dados.
+          </p>
+          <p class="custom-text-indent">
+            Assim, sem sair de casa a oportunidade do emprego dos seus sonhos baterá em sua porta.
+            Quando as pessoas têm oportunidades de mostrar o pontencial, é possível encontrar os
+            empregos dos sonhos. As oportunidades surgem, as portas se abrem e os sonhos se tornam
+            realidade. Essa tecnologia, começa a mostrar aos trabalhadores e as empresas a forma
+            fácil de localizar os seus pares perfeitos. Assim, possibilitamos as conexões entre
+            profisssionais e empresas.
+          </p>
+        </div>
+      </section>
 
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Descrição do cargo</div>
-            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
+      <!-- LEGISLAÇÃO -->
+      <section
+        id="legislacao"
+        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
+      >
+        <div class="uk-flex uk-flex-center uk-flex-middle">
+          <!-- LEGISLAÇÃO - TÍTULO -->
+          <div class="uk-text-center">
+            <h2>LEGISLAÇÃO</h2>
           </div>
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Pre-requisitos</div>
-            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
-          </div>
+        </div>
 
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Escolaridade</div>
-            <div class="uk-form-controls">
-              <select class="uk-select" name="Escolaridade" id="form-horizontal-select">
-                <option>Sem instrução formal</option>
-                <option>Ensino Fundamental</option>
-                <option>Ensino Medio</option>
-                <option>Ensino Superior</option>
-                <option>Pos-graduação</option>
-                <option>Mestrado</option>
-                <option>Doutorado</option>
-              </select>
-            </div>
-          </div>
-          <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Local de trabalho</div>
-            <input class="uk-input" name="location" type="text" placeholder="Ex.: Belo Horizonte" />
-          </div>
-
-          <div class="uk-width-1-1">
-            <div class="uk-form-label uk-text-meta">É acessivel para:</div>
-            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-              <div class="uk-width-1-2@s">
-              <label><input class="uk-checkbox" type="checkbox" /> Visual </label>
-              <label><input class="uk-checkbox" type="checkbox" /> Motora </label>
-              <label><input class="uk-checkbox" type="checkbox" /> Mental </label>
-            </div>
-            <div class="uk-width-1-2@s">
-              <input class="uk-input" name="location" type="text" placeholder="Outros" />
-            </div>
-          </div>
-
-          <button
-            id="register-user-btn"
-            class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
-            type="button"
-          >
-            Publicar oferta de vaga
-          </button>
-        </form>
-      </div>
+        <!-- LEGISLAÇÃO - TEXTO -->
+        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
+          <p class="custom-text-indent">
+            Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2%
+            (dois por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados
+            ou pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
+          </p>
+          <ol type="I">
+            <li><span>até 200 empregados</span><span>.....2%;</span></li>
+            <li><span>de 201 a 500</span><span>.....................3%;</span></li>
+            <li><span>de 501 a 1.000</span><span>..................4%;</span></li>
+            <li><span>de 1.001 em diante</span><span>.........5%</span></li>
+          </ol>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->

@@ -17,9 +17,9 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
-    <script src="/assets/js/opportunities.js"></script>
+    <script src="/assets/js/registerCompany.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas - Vagas</title>
+    <title>Acesse Vagas - Cadastro de empresa</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -147,103 +147,71 @@
       </div>
     </section>
 
-    <!-- ASIDE -->
-    <aside>
-      <section
-        id="search-section"
-        class="uk-column-1-1 uk-column-1-2@s uk-column-divider uk-card uk-card-default uk-card-body uk-margin-large"
-      >
-        <div id="search-wrapper">
-          <div class="uk-tile">
-            <p class="uk-h3 uk-text-center">Busque vaga de emprego para PcD:</p>
-          </div>
-          <div class="uk-child-width-1-1">
-            <form class="uk-search uk-search-navbar uk-child-width-1-1">
-              <span uk-search-icon></span>
-              <input
-                id="opportunitySearch"
-                class="input-filter uk-search-input"
-                type="search"
-                placeholder="Pesquisar vaga"
-              />
-            </form>
-          </div>
-        </div>
-        <div id="filter-wrapper" class="uk-child-width-1-2" uk-grid>
-          <div class="uk-tile">
-            <p class="uk-h4">Salário</p>
-            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
-              <label
-                ><input
-                  class="input-filter salary-filter uk-checkbox"
-                  type="checkbox"
-                  data-value="5000"
-                  data-sign="<="
-                  checked
-                />
-                Até R$5.000,00</label
-              >
-              <label
-                ><input
-                  class="input-filter salary-filter uk-checkbox"
-                  type="checkbox"
-                  data-value="10000"
-                  data-sign="<="
-                  checked
-                />
-                Até R$10.000,00</label
-              >
-              <label
-                ><input
-                  class="input-filter salary-filter uk-checkbox"
-                  type="checkbox"
-                  data-value="10000"
-                  data-sign=">"
-                  checked
-                />
-                Acima de R$10.000,00</label
-              >
-            </div>
-          </div>
-          <div class="uk-tile">
-            <p class="uk-h4">Escolaridade</p>
-            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
-              <label
-                ><input
-                  class="input-filter schooling-filter uk-checkbox"
-                  type="checkbox"
-                  data-schooling="Ensino Fundamental"
-                  checked
-                />
-                Ensino Fundamental</label
-              >
-              <label
-                ><input
-                  class="input-filter schooling-filter uk-checkbox"
-                  type="checkbox"
-                  data-schooling="Ensino Médio"
-                  checked
-                />
-                Ensino Médio</label
-              >
-              <label
-                ><input
-                  class="input-filter schooling-filter uk-checkbox"
-                  type="checkbox"
-                  data-schooling="Ensino Superior"
-                  checked
-                />
-                Ensino Superior</label
-              >
-            </div>
-          </div>
-        </div>
-      </section>
-    </aside>
-
     <!-- MAIN -->
     <main>
-      <section id="opportunityList"></section>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Empresa</h1>
+
+      <div class="uk-container uk-container-small">
+        <form class="uk-grid-small" uk-grid>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Cargo</div>
+            <input class="uk-input" name="name" type="text" placeholder="Ex.: Secretaria" />
+          </div>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Salário</div>
+            <input class="uk-input" type="text" placeholder="R$ xxxx.xx" />
+          </div>
+
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Descrição do cargo</div>
+            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
+          </div>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Pre-requisitos</div>
+            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
+          </div>
+
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Escolaridade</div>
+            <div class="uk-form-controls">
+              <select class="uk-select" name="Escolaridade" id="form-horizontal-select">
+                <option>Sem instrução formal</option>
+                <option>Ensino Fundamental</option>
+                <option>Ensino Medio</option>
+                <option>Ensino Superior</option>
+                <option>Pos-graduação</option>
+                <option>Mestrado</option>
+                <option>Doutorado</option>
+              </select>
+            </div>
+          </div>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Local de trabalho</div>
+            <input class="uk-input" name="location" type="text" placeholder="Ex.: Belo Horizonte" />
+          </div>
+
+          <div class="uk-width-1-1">
+            <div class="uk-form-label uk-text-meta">É acessivel para:</div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <div class="uk-width-1-2@s">
+              <label><input class="uk-checkbox" type="checkbox" /> Visual </label>
+              <label><input class="uk-checkbox" type="checkbox" /> Motora </label>
+              <label><input class="uk-checkbox" type="checkbox" /> Mental </label>
+            </div>
+            <div class="uk-width-1-2@s">
+              <input class="uk-input" name="location" type="text" placeholder="Outros" />
+            </div>
+          </div>
+
+          <button
+            id="register-user-btn"
+            class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
+            type="button"
+          >
+            Publicar oferta de vaga
+          </button>
+        </form>
+      </div>
     </main>
 
     <!-- FOOTER -->
