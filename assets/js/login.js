@@ -11,7 +11,7 @@ $(document).ready(() => {
   const onLoginError = () => {
     const message = $('<span />', {
       class: 'uk-display-block uk-text-center',
-      text: 'CPF/CNPJ ou senha invÃ¡lidos'
+      text: 'CPF/CNPJ ou senha inválidos'
     });
 
     UIkit.notification.closeAll();
@@ -32,8 +32,8 @@ $(document).ready(() => {
       .where('password', '==', password)
       .get()
       .then((result) => {
-        const doesUserExist = result.docs && result.docs.length;
-        if (doesUserExist && result.docs[0].exists) {
+        const doesUserExists = result.docs && result.docs.length;
+        if (doesUserExists && result.docs[0].exists) {
           const user = result.docs[0].data();
           const { email, password } = user;
           firebase

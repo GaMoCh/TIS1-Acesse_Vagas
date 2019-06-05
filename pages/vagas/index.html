@@ -17,9 +17,10 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
-    <script src="/assets/js/registerCompany.js"></script>
+    <script src="/assets/js/masks.js"></script>
+    <script src="/assets/js/opportunities.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas - Cadastro de vaga</title>
+    <title>Acesse Vagas - Vagas</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -147,8 +148,104 @@
       </div>
     </section>
 
+    <!-- ASIDE -->
+    <aside>
+      <section
+        id="search-section"
+        class="uk-column-1-1 uk-column-1-2@s uk-column-divider uk-card uk-card-default uk-card-body uk-margin-large"
+      >
+        <div id="search-wrapper">
+          <div class="uk-tile">
+            <p class="uk-h3 uk-text-center">Busque vaga de emprego para PcD:</p>
+          </div>
+          <div class="uk-child-width-1-1">
+            <form class="uk-search uk-search-navbar uk-child-width-1-1">
+              <span uk-search-icon></span>
+              <input
+                id="opportunitySearch"
+                class="input-filter uk-search-input"
+                type="search"
+                placeholder="Pesquisar vaga"
+              />
+            </form>
+          </div>
+        </div>
+        <div id="filter-wrapper" class="uk-child-width-1-2" uk-grid>
+          <div class="uk-tile">
+            <p class="uk-h4">Salário</p>
+            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="5000"
+                  data-sign="<="
+                  checked
+                />
+                Até R$5.000,00</label
+              >
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="10000"
+                  data-sign="<="
+                  checked
+                />
+                Até R$10.000,00</label
+              >
+              <label
+                ><input
+                  class="input-filter salary-filter uk-checkbox"
+                  type="checkbox"
+                  data-value="10000"
+                  data-sign=">"
+                  checked
+                />
+                Acima de R$10.000,00</label
+              >
+            </div>
+          </div>
+          <div class="uk-tile">
+            <p class="uk-h4">Escolaridade</p>
+            <div class="filter-list uk-flex uk-flex-column uk-margin-remove">
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Fundamental"
+                  checked
+                />
+                Ensino Fundamental</label
+              >
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Médio"
+                  checked
+                />
+                Ensino Médio</label
+              >
+              <label
+                ><input
+                  class="input-filter schooling-filter uk-checkbox"
+                  type="checkbox"
+                  data-schooling="Ensino Superior"
+                  checked
+                />
+                Ensino Superior</label
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
     <!-- MAIN -->
-    <main></main>
+    <main>
+      <section id="opportunityList"></section>
+    </main>
 
     <!-- FOOTER -->
     <footer>
