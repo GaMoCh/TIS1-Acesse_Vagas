@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(() => {
   const onUserCreatedSuccessfully = () => {
     location.href = `${location.origin}/`;
@@ -6,9 +8,9 @@ $(document).ready(() => {
   const onUserCreatedError = (error) => {
     if (error && error.message) {
       $('#user-register-error').text(error.message);
-      $('#register-error-wrapper').removeClass('uk-hidden');  
+      $('#register-error-wrapper').removeClass('uk-hidden');
       setTimeout(() => {
-        $('#register-error-wrapper').addClass('uk-hidden');  
+        $('#register-error-wrapper').addClass('uk-hidden');
       }, 5000);
     }
   };
@@ -19,25 +21,31 @@ $(document).ready(() => {
         type: 'user',
         id: userData.cpf
       });
-      db.collection("users").doc(userData.email).set(userData)
+      database
+        .collection('users')
+        .doc(userData.email)
+        .set(userData)
         .then(() => resolve())
         .catch((error) => reject(error));
     });
   };
 
   $('#register-user-btn').on('click', (event) => {
-    const formData = $('form').serialize().split('&').reduce((prev, curr) => {
-      const [key, obj] = curr.split('=');
-      prev[key] = decodeURIComponent(obj);
-      return prev;
-    }, {});
+    const formData = $('form')
+      .serialize()
+      .split('&')
+      .reduce((prev, curr) => {
+        const [key, obj] = curr.split('=');
+        prev[key] = decodeURIComponent(obj);
+        return prev;
+      }, {});
 
     const { email, password } = formData;
-    firebase.auth()
+    firebase
+      .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => createUserOnDatabase(formData))
       .then(() => onUserCreatedSuccessfully())
       .catch((error) => onUserCreatedError(error));
   });
-
 });

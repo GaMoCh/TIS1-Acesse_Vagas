@@ -17,9 +17,8 @@
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
-    <script src="/assets/js/registerUser.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas - Cadastro de usuário</title>
+    <title>Acesse Vagas - Painel de Empresa</title>
   </head>
   <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
     <!-- HEADER -->
@@ -77,12 +76,9 @@
                       class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
                       type="button"
                     >
-                      <span >Entrar</span>
+                      <span>Entrar</span>
                       <i class="fas fa-sign-in-alt"></i>
                     </button>
-                    <div id="login-error-msg" class="uk-text-center uk-hidden">
-                      <span class="uk-text-small uk-text-danger">CPF/CNPJ ou senha inválidos</span>
-                    </div>
                     <a href="#" class="uk-display-block uk-link-reset uk-text-center">
                       <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
                     </a>
@@ -151,83 +147,7 @@
     </section>
 
     <!-- MAIN -->
-    <main>
-      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Usuário</h1>
-
-      <div class="uk-container uk-container-small">
-        <form class="uk-grid-small" uk-grid>
-          <div class="uk-width-1-2">
-            <div class="uk-form-label uk-text-meta">Nome:</div>
-            <input class="uk-input" name="name" type="text" placeholder="Ex: Maria" />
-          </div>
-          <div class="uk-width-1-2">
-            <div class="uk-form-label uk-text-meta">E-mail:</div>
-            <input class="uk-input" name="email" type="email" placeholder="Ex: email@email.com" />
-          </div>
-          <div class="uk-width-1-4@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">CPF:</div>
-            <input class="uk-input" name="cpf" type="number" placeholder="XXX.XXX.XXX-XX" />
-          </div>
-          <div class="uk-width-1-4@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">RG:</div>
-            <input class="uk-input" cpf="rg" type="text" placeholder="XX-XX.XXX.XXX" />
-          </div>
-          <div class="uk-form-label uk-text-meta">Sexo:</div>
-          <div class="uk-form-controls uk-form-controls-text ">
-            <label><input class="uk-radio" type="radio" name="radio1" /> Feminino</label><br />
-            <label><input class="uk-radio" type="radio" name="radio1" /> Masculino</label><br />
-            <label><input class="uk-radio" type="radio" name="radio1" /> Outro</label>
-          </div>
-          <div class="uk-width-1-4@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">Cidade:</div>
-            <div class="uk-form-controls">
-              <select class="uk-select" name="city" id="form-horizontal-select">
-                <option>Belo Horizonte</option>
-                <option>Contagem</option>
-                <option>Betim</option>
-                <option>Sarzedo</option>
-                <option>Ibirité</option>
-              </select>
-            </div>
-          </div>
-          <div class="uk-width-1-4@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">Nascimento:</div>
-            <input class="uk-input" name="birthday" type="date" placeholder="DD/MM/AA" />
-          </div>
-          <div class="uk-width-1-2@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">Profissão</div>
-            <input class="uk-input" name="profession" type="text" placeholder="Ex: Padeiro" />
-          </div>
-          <div class="uk-width-1-2@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">
-              Telefone:
-              <input
-                class="uk-input"
-                name="phone-number"
-                type="tel"
-                placeholder="(XX) XXXXX-XXXX"
-              />
-            </div>
-          </div>
-          <div class="uk-width-1-2@s uk-width-1-4@m">
-            <div class="uk-form-label uk-text-meta">
-              Senha:
-              <input class="uk-input" name="password" type="password" placeholder="" />
-            </div>
-          </div>
-          <div id="register-error-wrapper" class="uk-width-1-1 uk-text-center uk-hidden">
-            <span id="user-register-error" class="uk-text-small uk-text-danger"></span>
-          </div>
-          <button
-            id="register-user-btn"
-            class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
-            type="button"
-          >
-            Cadastrar
-          </button>
-        </form>
-      </div>
-    </main>
+    <main></main>
 
     <!-- FOOTER -->
     <footer>
