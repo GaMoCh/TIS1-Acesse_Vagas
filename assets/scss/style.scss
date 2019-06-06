@@ -1,3 +1,13 @@
+$global-muted-background: #004056;
+$global-link-hover-color: #2C858D;
+$global-primary-background: #2C858D;
+$global-link-color: #2C858D;
+$white-text: #fff;
+
+@import "../../node_modules/uikit/src/scss/variables-theme.scss";
+@import "../../node_modules/uikit/src/scss/mixins-theme.scss";
+@import "../../node_modules/uikit/src/scss/uikit-theme.scss";
+
 a * {
   color: inherit;
 }
@@ -14,4 +24,43 @@ input[type='number']::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+header span,
+header .uk-navbar-nav > li > a,
+header .uk-navbar-nav > li > a.uk-open,
+header svg,
+footer svg,
+footer span {
+  color: $white-text;
+
+  &:hover {
+    color: $global-link-hover-color;   
+  }
+
+}
+
+header .uk-navbar-nav > li {
+
+  &:hover a,
+  &:visited a {
+    color: $global-link-hover-color;   
+  }
+
+}
+
+input, 
+select, 
+textarea {
+  &:focus {
+    border-color: $global-primary-background;
+  }
+}
+
+article.opportunityContainer {
+  border-bottom: solid 2px $global-primary-background;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
