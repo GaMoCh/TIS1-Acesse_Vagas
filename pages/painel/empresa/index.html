@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="uk-height-1-1" lang="pt-br">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,7 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
@@ -21,14 +22,14 @@
     <script src="/assets/js/script.js"></script>
     <title>Acesse Vagas - Painel de usuário</title>
   </head>
-  <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
+  <body>
     <!-- HEADER -->
     <header>
       <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
         <!-- LOGO -->
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="/">
-            <img src="/assets/img/logo.svg" alt="logo" width="36px" height="36px" />
+            <img src="/assets/img/preloader.svg" alt="logo" width="36px" height="36px" />
             <span>Acesse Vagas</span>
           </a>
         </div>
@@ -58,7 +59,7 @@
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
                         id="user-id"
-                        class="uk-input uk-form-width-large"
+                        class="user-input uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
                       />

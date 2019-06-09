@@ -26,25 +26,29 @@ $(document).ready(() => {
 
   const salaryFilter = (opportunity) =>
     $.makeArray($('.salary-filter')).some(function(filter) {
+      const filterSalary = parseFloat($(filter).data('value'));
+      const opportunitySalary = parseFloat(
+        $(opportunity)
+          .data('salary')
+          .replace(/\./g, '')
+          .replace(',', '.')
+      );
+
       switch ($(filter).data('sign')) {
         case '<':
-          if ($(opportunity).data('salary') < $(filter).data('value') && $(filter).is(':checked'))
-            return true;
+          if (opportunitySalary < filterSalary && $(filter).is(':checked')) return true;
           break;
 
         case '<=':
-          if ($(opportunity).data('salary') <= $(filter).data('value') && $(filter).is(':checked'))
-            return true;
+          if (opportunitySalary <= filterSalary && $(filter).is(':checked')) return true;
           break;
 
         case '>':
-          if ($(opportunity).data('salary') > $(filter).data('value') && $(filter).is(':checked'))
-            return true;
+          if (opportunitySalary > filterSalary && $(filter).is(':checked')) return true;
           break;
 
         case '>=':
-          if ($(opportunity).data('salary') >= $(filter).data('value') && $(filter).is(':checked'))
-            return true;
+          if (opportunitySalary >= filterSalary && $(filter).is(':checked')) return true;
           break;
 
         default:
@@ -65,31 +69,24 @@ $(document).ready(() => {
     });
   });
 
-  if (JSON.parse(sessionStorage.getItem('user')).type == 'company') {
-    const opportunityRegisterText = $('<span />', {
-      class: 'uk-text-large',
-      text: 'Cadastrar vaga'
-    });
-
-    const opportunityRegisterAnchor = $('<a />', {
-      class:
-        'uk-display-block uk-padding uk-padding-remove-bottom uk-link-heading uk-heading-line uk-text-center',
-      href: '/pages/cadastro/vaga'
-    }).append(opportunityRegisterText);
-
-    $('#search-section').before(opportunityRegisterAnchor);
-  }
-
   firebase
     .firestore()
     .collection('opportunities')
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach(function(opportunity) {
-        const { address, company, office, salary, schooling } = opportunity.data();
+        const {
+          address,
+          company,
+          description,
+          office,
+          requirements,
+          salary,
+          schooling
+        } = opportunity.data();
 
         const opportunityContainer = $('<article />', {
-          class: 'opportunityContainer uk-comment uk-margin-medium uk-padding-small',
+          class: 'opportunityContainer uk-comment uk-padding-large',
           'data-salary': salary,
           'data-schooling': schooling
         }).appendTo('#opportunityList');
@@ -132,6 +129,15 @@ $(document).ready(() => {
             'opportunityInformationList uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top'
         }).appendTo(opportunityInformationContainer);
 
+        const opportunityCompanyContainer = $('<li/>', {
+          class: 'opportunityCompanyContainer'
+        }).appendTo(opportunityInformationList);
+
+        const opportunityCompany = $('<a/>', {
+          class: 'opportunityCompany',
+          text: company
+        }).appendTo(opportunityCompanyContainer);
+
         const opportunitySchoolingContainer = $('<li/>', {
           class: 'opportunitySchoolingContainer'
         }).appendTo(opportunityInformationList);
@@ -147,12 +153,14 @@ $(document).ready(() => {
 
         const opportunitySalary = $('<a/>', {
           class: 'opportunitySalary',
-          text: `R$${salary},00`
+          text: `R$${salary}`
         }).appendTo(opportunitySalaryContainer);
 
         const opportunityDescription = $('<p />', {
           class: 'opportunityDescription',
-          text: `${company} - ${address}`
+          html: `<b>Endereço:</b> ${address || 'Não informado'}
+          <br/><b>Descrição do cargo:</b> ${description || 'Nenhuma'}
+          <br/><b>Pré-requisitos:</b> ${requirements || 'Nenhum'}`
         }).appendTo(opportunityBody);
       });
     });

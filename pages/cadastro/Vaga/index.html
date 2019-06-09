@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="uk-height-1-1" lang="pt-br">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,23 +13,24 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/masks.js"></script>
-    <script src="/assets/js/registerCompany.js"></script>
+    <script src="/assets/js/registerOpportunity.js"></script>
     <script src="/assets/js/script.js"></script>
     <title>Acesse Vagas - Cadastro de vaga</title>
   </head>
-  <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
+  <body>
     <!-- HEADER -->
     <header>
       <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
         <!-- LOGO -->
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="/">
-            <img src="/assets/img/logo.svg" alt="logo" width="36px" height="36px" />
+            <img src="/assets/img/preloader.svg" alt="logo" width="36px" height="36px" />
             <span>Acesse Vagas</span>
           </a>
         </div>
@@ -59,7 +60,7 @@
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
                         id="user-id"
-                        class="uk-input uk-form-width-large"
+                        class="user-input uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
                       />
@@ -150,48 +151,53 @@
 
     <!-- MAIN -->
     <main>
-      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Empresa</h1>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de vaga</h1>
 
       <div class="uk-container uk-container-small">
         <form class="uk-grid-small" uk-grid>
           <div class="uk-width-1-2@s ">
             <div class="uk-form-label uk-text-meta">Cargo</div>
-            <input class="uk-input" name="name" type="text" placeholder="Ex.: Secretaria" />
+            <input class="uk-input" name="office" type="text" placeholder="Ex: Secretária" />
           </div>
           <div class="uk-width-1-2@s ">
             <div class="uk-form-label uk-text-meta">Salário</div>
-            <input class="uk-input" type="text" placeholder="R$ xxxx.xx" />
+            <input
+              class="salary-input uk-input"
+              name="salary"
+              type="text"
+              placeholder="Ex: 1000,00"
+            />
           </div>
 
           <div class="uk-width-1-2@s ">
             <div class="uk-form-label uk-text-meta">Descrição do cargo</div>
-            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
+            <textarea class="uk-textarea" name="description" rows="5" type="text"></textarea>
           </div>
           <div class="uk-width-1-2@s ">
-            <div class="uk-form-label uk-text-meta">Pre-requisitos</div>
-            <textarea class="uk-textarea" rows="5" type="text" placeholder=""></textarea>
+            <div class="uk-form-label uk-text-meta">Pré-requisitos</div>
+            <textarea class="uk-textarea" name="requirements" rows="5" type="text"></textarea>
           </div>
 
           <div class="uk-width-1-2@s ">
             <div class="uk-form-label uk-text-meta">Escolaridade</div>
             <div class="uk-form-controls">
-              <select class="uk-select" name="Escolaridade" id="form-horizontal-select">
-                <option>Sem instrução formal</option>
-                <option>Ensino Fundamental</option>
-                <option>Ensino Medio</option>
-                <option>Ensino Superior</option>
-                <option>Pos-graduação</option>
-                <option>Mestrado</option>
-                <option>Doutorado</option>
+              <select class="uk-select" name="schooling">
+                <!-- <option>Sem instrução formal</option> -->
+                <option value="Ensino Fundamental">Ensino Fundamental</option>
+                <option value="Ensino Medio">Ensino Medio</option>
+                <option value="Ensino Superior">Ensino Superior</option>
+                <!-- <option>Pos-graduação</option> -->
+                <!-- <option>Mestrado</option> -->
+                <!-- <option>Doutorado</option> -->
               </select>
             </div>
           </div>
           <div class="uk-width-1-2@s ">
             <div class="uk-form-label uk-text-meta">Local de trabalho</div>
-            <input class="uk-input" name="location" type="text" placeholder="Ex.: Belo Horizonte" />
+            <input class="uk-input" name="address" type="text" />
           </div>
 
-          <div class="uk-width-1-1">
+          <!-- <div class="uk-width-1-1">
             <div class="uk-form-label uk-text-meta">É acessivel para deficiência:</div>
             <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
               <div class="uk-width-1-2@s">
@@ -202,10 +208,10 @@
             <div class="uk-width-1-2@s">
               <input class="uk-input" name="location" type="text" placeholder="Outros" />
             </div>
-          </div>
+          </div> -->
 
           <button
-            id="register-user-btn"
+            id="register-opportunity-btn"
             class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
             type="button"
           >

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="uk-height-1-1" lang="pt-br">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +13,7 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
     <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
     <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
     <script src="/assets/js/firebase.js"></script>
@@ -22,14 +23,14 @@
     <script src="/assets/js/script.js"></script>
     <title>Acesse Vagas - Cadastro de usuário</title>
   </head>
-  <body class="uk-height-1-1 uk-flex uk-flex-column uk-flex-between">
+  <body>
     <!-- HEADER -->
     <header>
       <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
         <!-- LOGO -->
         <div class="uk-navbar-left">
           <a class="uk-navbar-item uk-logo" href="/">
-            <img src="/assets/img/logo.svg" alt="logo" width="36px" height="36px" />
+            <img src="/assets/img/preloader.svg" alt="logo" width="36px" height="36px" />
             <span>Acesse Vagas</span>
           </a>
         </div>
@@ -59,7 +60,7 @@
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
                         id="user-id"
-                        class="uk-input uk-form-width-large"
+                        class="user-input uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
                       />
@@ -150,7 +151,7 @@
 
     <!-- MAIN -->
     <main>
-      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de Usuário</h1>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de usuário</h1>
 
       <div class="uk-container uk-container-small">
         <form class="uk-grid-small" uk-grid>
@@ -160,15 +161,20 @@
           </div>
           <div class="uk-width-1-2">
             <div class="uk-form-label uk-text-meta">E-mail:</div>
-            <input class="uk-input" name="email" type="email" placeholder="Ex: email@email.com" />
+            <input
+              class="email-input uk-input"
+              name="email"
+              type="email"
+              placeholder="Ex: email@email.com"
+            />
           </div>
           <div class="uk-width-1-4@s uk-width-1-4@m">
             <div class="uk-form-label uk-text-meta">CPF:</div>
-            <input class="uk-input" name="cpf" type="number" placeholder="XXX.XXX.XXX-XX" />
+            <input class="cpf-input uk-input" name="cpf" type="text" placeholder="XXX.XXX.XXX-XX" />
           </div>
           <div class="uk-width-1-4@s uk-width-1-4@m">
             <div class="uk-form-label uk-text-meta">RG:</div>
-            <input class="uk-input" cpf="rg" type="text" placeholder="XX-XX.XXX.XXX" />
+            <input class="rg-input uk-input" type="text" placeholder="XX-XX.XXX.XXX" />
           </div>
           <div class="uk-form-label uk-text-meta">Sexo:</div>
           <div class="uk-form-controls uk-form-controls-text ">
@@ -194,13 +200,13 @@
           </div>
           <div class="uk-width-1-2@s uk-width-1-4@m">
             <div class="uk-form-label uk-text-meta">Profissão</div>
-            <input class="uk-input" name="profession" type="text" placeholder="Ex: Padeiro" />
+            <input class="uk-input" name="profession" type="text" placeholder="Ex: Secretária" />
           </div>
           <div class="uk-width-1-2@s uk-width-1-4@m">
             <div class="uk-form-label uk-text-meta">
               Telefone:
               <input
-                class="uk-input"
+                class="phone-input uk-input"
                 name="phone-number"
                 type="tel"
                 placeholder="(XX) XXXXX-XXXX"

@@ -42,6 +42,25 @@ function userState() {
       }
     });
 
+    if (sessionStorage.getItem('user') !== null) {
+      if (JSON.parse(sessionStorage.getItem('user')).type == 'company') {
+        const opportunityRegisterText = $('<span />', {
+          class: 'uk-text-large',
+          text: 'Cadastrar vaga'
+        });
+
+        const opportunityRegisterAnchor = $('<a />', {
+          class:
+            'uk-display-block uk-padding uk-padding-remove-bottom uk-link-heading uk-heading-line uk-text-center',
+          href: '/pages/cadastro/vaga'
+        }).append(opportunityRegisterText);
+
+        $('#search-section').before(opportunityRegisterAnchor);
+      }
+    }
+
+    $('[name="address"]').val(userData.address);
+
     $('#signUp-link').html(signOut);
     responsiveMenu();
   }
