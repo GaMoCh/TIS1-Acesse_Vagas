@@ -19,8 +19,9 @@
     <script src="/assets/js/firebase.js"></script>
     <script src="/assets/js/login.js"></script>
     <script src="/assets/js/masks.js"></script>
+    <script src="/assets/js/registerOpportunity.js"></script>
     <script src="/assets/js/script.js"></script>
-    <title>Acesse Vagas</title>
+    <title>Acesse Vagas - Cadastro de vaga</title>
   </head>
   <body>
     <!-- HEADER -->
@@ -59,7 +60,7 @@
                       <span class="uk-form-icon" uk-icon="user"></span>
                       <input
                         id="user-id"
-                        class="user-input user-input uk-input uk-form-width-large"
+                        class="user-input uk-input uk-form-width-large"
                         type="text"
                         placeholder="Cpf / Cnpj"
                       />
@@ -150,65 +151,74 @@
 
     <!-- MAIN -->
     <main>
-      <!-- QUEM SOMOS -->
-      <section
-        id="quemSomos"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- QUEM SOMOS - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>QUEM SOMOS</h2>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Cadastro de vaga</h1>
+
+      <div class="uk-container uk-container-small">
+        <form class="uk-grid-small" uk-grid>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Cargo</div>
+            <input class="uk-input" name="office" type="text" placeholder="Ex: Secretária" />
           </div>
-        </div>
-
-        <!-- QUEM SOMOS - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
-            Deficiência. Independente da sua qualificação profissional, a sua oportunidade estará
-            aqui. Através do preenchimento do curriculum online. O nosso software irá analisar as
-            suas qualidades técnicas e sincronizará com as vagas disponíveis nas empresas
-            cadastradas no nosso banco de dados.
-          </p>
-          <p class="custom-text-indent">
-            Assim, sem sair de casa a oportunidade do emprego dos seus sonhos baterá em sua porta.
-            Quando as pessoas têm oportunidades de mostrar o pontencial, é possível encontrar os
-            empregos dos sonhos. As oportunidades surgem, as portas se abrem e os sonhos se tornam
-            realidade. Essa tecnologia, começa a mostrar aos trabalhadores e as empresas a forma
-            fácil de localizar os seus pares perfeitos. Assim, possibilitamos as conexões entre
-            profisssionais e empresas.
-          </p>
-        </div>
-      </section>
-
-      <!-- LEGISLAÇÃO -->
-      <section
-        id="legislacao"
-        class="uk-card uk-card-default uk-card-body uk-margin-small-top uk-margin-small-bottom"
-      >
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-          <!-- LEGISLAÇÃO - TÍTULO -->
-          <div class="uk-text-center">
-            <h2>LEGISLAÇÃO</h2>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Salário</div>
+            <input
+              class="salary-input uk-input"
+              name="salary"
+              type="text"
+              placeholder="Ex: 1000,00"
+            />
           </div>
-        </div>
 
-        <!-- LEGISLAÇÃO - TEXTO -->
-        <div class="uk-column-1-2@s uk-column-divider uk-text-justify">
-          <p class="custom-text-indent">
-            Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2%
-            (dois por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados
-            ou pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
-          </p>
-          <ol type="I">
-            <li><span>até 200 empregados</span><span>.....2%;</span></li>
-            <li><span>de 201 a 500</span><span>.....................3%;</span></li>
-            <li><span>de 501 a 1.000</span><span>..................4%;</span></li>
-            <li><span>de 1.001 em diante</span><span>.........5%</span></li>
-          </ol>
-        </div>
-      </section>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Descrição do cargo</div>
+            <textarea class="uk-textarea" name="description" rows="5" type="text"></textarea>
+          </div>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Pré-requisitos</div>
+            <textarea class="uk-textarea" name="requirements" rows="5" type="text"></textarea>
+          </div>
+
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Escolaridade</div>
+            <div class="uk-form-controls">
+              <select class="uk-select" name="schooling">
+                <!-- <option>Sem instrução formal</option> -->
+                <option value="Ensino Fundamental">Ensino Fundamental</option>
+                <option value="Ensino Medio">Ensino Medio</option>
+                <option value="Ensino Superior">Ensino Superior</option>
+                <!-- <option>Pos-graduação</option> -->
+                <!-- <option>Mestrado</option> -->
+                <!-- <option>Doutorado</option> -->
+              </select>
+            </div>
+          </div>
+          <div class="uk-width-1-2@s ">
+            <div class="uk-form-label uk-text-meta">Local de trabalho</div>
+            <input class="uk-input" name="address" type="text" />
+          </div>
+
+          <!-- <div class="uk-width-1-1">
+            <div class="uk-form-label uk-text-meta">É acessivel para deficiência:</div>
+            <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+              <div class="uk-width-1-2@s">
+              <label><input class="uk-checkbox" type="checkbox" /> Visual </label>
+              <label><input class="uk-checkbox" type="checkbox" /> Motora </label>
+              <label><input class="uk-checkbox" type="checkbox" /> Mental </label>
+            </div>
+            <div class="uk-width-1-2@s">
+              <input class="uk-input" name="location" type="text" placeholder="Outros" />
+            </div>
+          </div> -->
+
+          <button
+            id="register-opportunity-btn"
+            class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
+            type="button"
+          >
+            Publicar
+          </button>
+        </form>
+      </div>
     </main>
 
     <!-- FOOTER -->
