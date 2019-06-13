@@ -28,6 +28,7 @@
 </head>
 
 <body>
+
   <!-- HEADER -->
   <header>
     <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
@@ -123,58 +124,56 @@
       </nav>
     </div>
   </section>
-  <br>
-  <br>
 
-  <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top"
-    style="background-image: url('assets/img/cad.png');">
-    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-      <h1 uk-parallax="opacity: 0,1; y: -50,0; scale: 2,1; viewport: 0.5;">QUEM SOMOS</h1>
-      <p uk-parallax="opacity: 0,1; y: 50,0; scale: 0.5,1; viewport: 0.5;"
-        class="uk-text-lead uk-text-emphasis uk-text-secondary">
-        Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
-        Deficiência.
-      </p>
+  <!--HOME PAGE-->
+  <main>
+    <br>
+    <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top"
+      style="background-image: url('assets/img/cad.png');">
+      <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1 uk-parallax="opacity: 0,1; y: -50,0; scale: 2,1; viewport: 0.5;">QUEM SOMOS</h1>
+        <p uk-parallax="opacity: 0,1; y: 50,0; scale: 0.5,1; viewport: 0.5;"
+          class="uk-text-lead uk-text-emphasis uk-text-secondary">
+          Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
+          Deficiência.
+        </p>
+      </div>
     </div>
-  </div>
+    <hr class="uk-divider-icon" />
 
-  <br>
-  <hr class="uk-divider-icon" />
-  <br>
+    <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top"
+      style="background-image: url('assets/img/jus.png');">
+      <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+        <h1 uk-parallax="opacity: 0,1; y: -50,0; scale: 2,1; viewport: 0.5;">LEGISLAÇÃO</h1>
+        <p uk-parallax="opacity: 0,1; y: 50,0; scale: 0.5,1; viewport: 0.5;"
+          class="uk-text-lead uk-text-emphasis uk-text-secondary">
+          Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2% (dois
+          por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados ou
+          pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
+        </p>
+      </div>
+    </div>
 
-  <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top"
-    style="background-image: url('assets/img/jus.png');">
-    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
-      <h1 uk-parallax="opacity: 0,1; y: -50,0; scale: 2,1; viewport: 0.5;">LEGISLAÇÃO</h1>
-      <p uk-parallax="opacity: 0,1; y: 50,0; scale: 0.5,1; viewport: 0.5;"
-        class="uk-text-lead uk-text-emphasis uk-text-secondary">
-        Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2% (dois
-        por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados ou
-        pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
-      </p>
+    <br />
+    <div class="container" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 400">
+      <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
+        <div class="chart" data-percent="2" data-scale-color="#ffb400">2%</div>
+        <h3>Até 200</h3>
+      </div>
+      <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
+        <div class="chart" data-percent="3" data-scale-color="#ffb400">3%</div>
+        <h3>201 a 500</h3>
+      </div>
+      <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
+        <div class="chart" data-percent="4" data-scale-color="#ffb400">4%</div>
+        <h3>501 a 1000</h3>
+      </div>
+      <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
+        <div class="chart" data-percent="5" data-scale-color="#ffb400">5%</div>
+        <h3>1000+</h3>
+      </div>
     </div>
-  </div>
-
-  <br /><br />
-  <div class="container" uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 400">
-    <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
-      <div class="chart" data-percent="2" data-scale-color="#ffb400">2%</div>
-      <h3>Até 200</h3>
-    </div>
-    <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
-      <div class="chart" data-percent="3" data-scale-color="#ffb400">3%</div>
-      <h3>201 a 500</h3>
-    </div>
-    <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
-      <div class="chart" data-percent="4" data-scale-color="#ffb400">4%</div>
-      <h3>501 a 1000</h3>
-    </div>
-    <div class="box" uk-scrollspy-class="uk-animation-slide-bottom">
-      <div class="chart" data-percent="5" data-scale-color="#ffb400">5%</div>
-      <h3>1000+</h3>
-    </div>
-  </div>
-
+  </main>
   <script>
     $(function () {
       $('.chart').easyPieChart({
