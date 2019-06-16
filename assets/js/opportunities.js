@@ -86,7 +86,7 @@ $(document).ready(() => {
         } = opportunity.data();
 
         const opportunityContainer = $('<article />', {
-          class: 'opportunityContainer uk-comment uk-padding-large',
+          class: 'opportunityContainer uk-comment uk-padding-small',
           'data-salary': salary,
           'data-schooling': schooling
         }).appendTo('#opportunityList');
@@ -106,7 +106,7 @@ $(document).ready(() => {
 
         const opportunityImage = $('<img />', {
           class: 'opportunityImage uk-comment-avatar',
-          src: '/assets/img/logo.svg',
+          src: '/assets/img/preloader.svg',
           width: 80,
           height: 80
         }).appendTo(opportunityImageContainer);

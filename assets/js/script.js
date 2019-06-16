@@ -68,7 +68,7 @@ function userState() {
 
 function responsiveMenu() {
   $('#offCanvasMenu').html('');
-  $('body > header ul').each(function(index) {
+  $('header ul').each(function(index) {
     $(this)
       .find('li > .uk-navbar-item')
       .each(function() {

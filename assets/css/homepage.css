@@ -1,10 +1,72 @@
+#background-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100vh;
+  background-image: url("/assets/img/cad.png");
+  background-size: cover;
+  position: relative;
+}
+
+#background-2 {
+  min-height: 100vh;
+  background-image: url("/assets/img/jus.png");
+  background-size: cover;
+  position: relative;
+}
+
+#navbar {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#navbar .uk-logo,
+#navbar button {
+  color: #2c858d;
+}
+
+#navbar .uk-navbar-dropdown {
+  left: 0 !important;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+#navbar .uk-navbar-dropdown * {
+  background: none;
+}
+
+#quem-somos {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+html {
+  min-height: 100%;
+  height: unset;
+}
+
+footer {
+  color: #ffffff;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+input {
+  border-color: #2c858d !important;
+  border-radius: 4px !important;
+}
+
 .container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (160px)[1];
       grid-template-columns: repeat(1, 160px);
   grid-gap: 80px;
-  margin: 0 auto;
+  margin: 128px auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -14,6 +76,7 @@
   .container {
     -ms-grid-columns: (160px)[2];
         grid-template-columns: repeat(2, 160px);
+    margin: 64px auto;
   }
 }
 
@@ -21,6 +84,7 @@
   .container {
     -ms-grid-columns: (160px)[3];
         grid-template-columns: repeat(3, 160px);
+    margin: 64px auto;
   }
 }
 
@@ -28,6 +92,7 @@
   .container {
     -ms-grid-columns: (160px)[4];
         grid-template-columns: repeat(4, 160px);
+    margin: 32px auto;
   }
 }
 

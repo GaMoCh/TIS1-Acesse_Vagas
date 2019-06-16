@@ -1,5 +1,5 @@
-$global-muted-background: #ffff;
-$global-primary-background: #d5d5d5;
+$global-muted-background: #004056;
+$global-primary-background: #2c858d;
 
 $global-link-color: #ffffff;
 $global-link-color-hover: #2c858d;
@@ -19,6 +19,20 @@ $global-link-color-hover: #2c858d;
   &:hover {
     color: $global-link-color-hover if($important, !important, null);
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80b4b4;
+}
+
+* {
+  scrollbar-color: #80b4b4 #ffffff;
+  scrollbar-width: thin;
 }
 
 a * {
@@ -85,7 +99,7 @@ html {
     > main {
       display: flex;
       flex-direction: column;
-      flex: 1;
+      flex-grow: 1;
       justify-content: center;
     }
 
