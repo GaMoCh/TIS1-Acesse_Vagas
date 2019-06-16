@@ -12745,3 +12745,8 @@ html > body > footer a.uk-link-reset:hover {
 .opportunityContainer:last-child {
   border-bottom: none;
 }
+
+.uk-notification-message {
+  background-color: #80b4b4;
+  color: #ffffff;
+}
