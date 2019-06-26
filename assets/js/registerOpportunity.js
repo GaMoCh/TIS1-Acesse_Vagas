@@ -20,7 +20,7 @@ $(document).ready(() => {
     }, 2000);
   };
 
-  const onOpportunityCreatedError = (error) => {};
+  const onOpportunityCreatedError = (error) => { };
 
   const createOpportunityOnDatabase = (opportunityData) => {
     return new Promise((resolve, reject) => {
@@ -49,7 +49,7 @@ $(document).ready(() => {
       }, {});
 
     createOpportunityOnDatabase(formData)
-      .then(onOpportunityCreatedSuccessfully)
-      .catch(onOpportunityCreatedError);
+      .then(() => onOpportunityCreatedSuccessfully())
+      .catch((error) => onOpportunityCreatedError(error));
   });
 });
