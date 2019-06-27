@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="msapplication-TileColor" content="#2c858d" />
+  <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
+  <meta name="theme-color" content="#2c858d" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+  <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#2c858d" />
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+  <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
+  <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  <link rel="stylesheet" href="/assets/css/homepage.min.css" />
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+  <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+  <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+  <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+  <script src="/assets/js/firebase.js"></script>
+  <script src="/assets/js/login.js"></script>
+  <script src="/assets/js/masks.js"></script>
+  <script src="/assets/js/script.js"></script>
+  <title>Acesse Vagas</title>
+</head>
+
+<body>
+  <section id="background-1">
+    <!-- HEADER -->
+    <header>
+      <nav id="navbar" class="uk-navbar-container" uk-navbar dropbar mode="click">
+        <!-- LOGO -->
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-item uk-logo" href="/">
+            <img src="/assets/img/preloader.svg" alt="logo" width="36px" height="36px" />
+            <span>Acesse Vagas</span>
+          </a>
+        </div>
+
+        <!-- MENU -->
+        <div class="uk-navbar-center">
+          <ul class="uk-navbar-nav">
+            <li><a class="uk-navbar-item uk-visible@m" href="/pages/vagas">Vagas</a></li>
+          </ul>
+        </div>
+
+        <!-- ENTRAR -->
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li id="signIn-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)">Entrar</a>
+              <!-- DROPDOWN -->
+              <div class="uk-navbar-dropdown uk-width-1-1" boundary="body" boundary-align pos="bottom-center">
+                <section class="uk-width-medium uk-margin-auto">
+                  <h2 class="uk-text-center">Entrar</h2>
+                  <form>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="user"></span>
+                      <input id="user-id" class="user-input user-input uk-input uk-form-width-large" type="text"
+                        placeholder="Cpf / Cnpj" />
+                    </div>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="lock"></span>
+                      <input id="password" class="uk-input uk-form-width-large" type="password" placeholder="Senha" />
+                    </div>
+                    <button id="login-button" class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
+                      type="button">
+                      <span>Entrar</span>
+                      <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    <a href="#" class="uk-display-block uk-link-reset uk-text-center">
+                      <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
+                    </a>
+                  </form>
+                </section>
+              </div>
+            </li>
+
+            <!-- CADASTRAR -->
+            <li id="signUp-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)">Cadastrar</a>
+              <!-- DROPDOWN -->
+              <div class="uk-navbar-dropdown uk-width-1-1" boundary="body" boundary-align pos="bottom-center">
+                <section class="uk-column-1-2@l uk-column-divider uk-width-xxlarge uk-margin-auto">
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/empresa" class="uk-link-heading">
+                      <i class="fas fa-user-tie fa-4x uk-flex"></i>
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como empresa</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <hr class="uk-hidden@l" />
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/usuario" class="uk-link-heading">
+                      <i class="fas fa-user fa-4x uk-flex"></i>
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como usuário</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                </section>
+              </div>
+            </li>
+          </ul>
+          <a class="uk-navbar-toggle uk-hidden@m" href="javascript:void(0)" uk-navbar-toggle-icon uk-toggle
+            target="#offCanvas"></a>
+        </div>
+      </nav>
+      <section class="uk-navbar-dropbar"></section>
+    </header>
+
+    <!-- OFF-CANVAS -->
+    <section id="offCanvas" uk-offcanvas overlay flip mode="push">
+      <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <nav class="uk-margin-auto-vertical">
+          <ul id="offCanvasMenu" class="uk-nav uk-nav-primary uk-nav-center"></ul>
+        </nav>
+      </div>
+    </section>
+
+    <!--HOME PAGE-->
+    <div id="quem-somos" class="uk-height-large uk-overflow-hidden uk-light uk-flex uk-flex-top"
+      uk-scrollspy="target: > div; cls: uk-animation-fade; delay: 500">
+      <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical"
+        uk-scrollspy-class="uk-animation-slide-bottom">
+        <h1>QUEM SOMOS</h1> <!-- PARALLAX -->
+        <p class="uk-text-lead uk-text-emphasis uk-text-secondary">
+          Somos uma plataforma especializada em oferecer vagas de empregos para Pessoas com
+          Deficiência.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section id="background-2">
+    <div>
+      <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top">
+        <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+          <h1 uk-parallax="opacity: 0,1; y: -50,0; scale: 2,1; viewport: 0.5;">LEGISLAÇÃO</h1> <!-- PARALLAX -->
+          <p uk-parallax="opacity: 0,1; y: 50,0; scale: 0.5,1; viewport: 0.5;"
+            class="uk-text-lead uk-text-emphasis uk-text-secondary">
+            Art. 93. A empresa com 100 (cem) ou mais empregados está obrigada a preencher de 2%
+            (dois por cento) a 5% (cinco por cento) dos seus cargos com beneficiários reabilitados
+            ou pessoas portadoras de deficiência, habilitadas, na seguinte proporção:
+          </p>
+        </div>
+      </div>
+      <div class="scroll">
+        <!-- OVERLAY -->
+        <div class="container uk-light">
+          <div class="box" uk-parallax="y: -80; easing: -4">
+            <div class="chart" data-percent="2" data-scale-color="#ffb400">2%</div>
+            <h3 class="uk-text-lead uk-text-emphasis uk-text-secondary">Até 200</h3>
+          </div>
+          <div class="box" uk-parallax="y: -80; easing: -3">
+            <div class="chart" data-percent="3" data-scale-color="#ffb400">3%</div>
+            <h3 class="uk-text-lead uk-text-emphasis uk-text-secondary">201 a 500</h3>
+          </div>
+          <div class="box" uk-parallax="y: -80; easing: -2">
+            <div class="chart" data-percent="4" data-scale-color="#ffb400">4%</div>
+            <h3 class="uk-text-lead uk-text-emphasis uk-text-secondary">501 a 1000</h3>
+          </div>
+          <div class="box" uk-parallax="y: -80; easing: -1">
+            <div class="chart" data-percent="5" data-scale-color="#ffb400">5%</div>
+            <h3 class="uk-text-lead uk-text-emphasis uk-text-secondary">1000+</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(function () {
+        $('.chart').easyPieChart({
+          size: 160,
+          barColor: '#725740',
+          scaleLength: 0,
+          lineWidth: 7,
+          trackColor: '#fff',
+          lineCap: 'circle',
+          animate: 7500
+        });
+      });
+    </script>
+
+    <!-- FOOTER -->
+    <footer>
+      <section id="legislacao" class="uk-flex uk-flex-around uk-flex-wrap">
+        <!-- CONTATOS - REDES SOCIAIS -->
+        <section>
+          <!-- FACEBOOK -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="facebook"></a>
+          </div>
+
+          <!-- TWITTER -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="twitter"></a>
+          </div>
+
+          <!-- LINKEDIN -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="linkedin"></a>
+          </div>
+        </section>
+
+        <!-- CONTATOS - COMUNICAÇÃO -->
+        <section>
+          <!-- E-MAIL -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="mailto:foo@bar.com">
+              <span uk-icon="mail"></span>
+              <span>foo@bar.com</span>
+            </a>
+          </div>
+
+          <!-- TELEFONE -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="tel:+5531987654321">
+              <span uk-icon="receiver"></span>
+              <span>+55 31 98765-4321</span>
+            </a>
+          </div>
+        </section>
+      </section>
+    </footer>
+  </section>
+</body>
+
+</html>
