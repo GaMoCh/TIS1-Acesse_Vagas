@@ -1,0 +1,142 @@
+$global-muted-background: #004056;
+$global-primary-background: #2c858d;
+
+$global-link-color: #ffffff;
+$global-link-color-hover: #2c858d;
+
+@import '../../node_modules/uikit/src/scss/variables-theme.scss';
+@import '../../node_modules/uikit/src/scss/mixins-theme.scss';
+@import '../../node_modules/uikit/src/scss/uikit-theme.scss';
+
+@mixin link($color: $global-link-color, $important: false) {
+  color: $color if($important, !important, null);
+
+  &:active,
+  &:focus {
+    color: $global-link-color;
+  }
+
+  &:hover {
+    color: $global-link-color-hover if($important, !important, null);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80b4b4;
+}
+
+* {
+  scrollbar-color: #80b4b4 #ffffff;
+  scrollbar-width: thin;
+}
+
+a * {
+  color: inherit;
+}
+
+input,
+select,
+textarea {
+  &:focus {
+    border-color: $global-primary-background;
+  }
+}
+
+input {
+  &[type='date'] {
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &[type='number'] {
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+
+  > body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+
+    > header {
+      .uk-logo {
+        @include link($color: $global-link-color-hover);
+      }
+
+      .uk-navbar {
+        &-nav {
+          > li > a {
+            @include link();
+
+            &.uk-open {
+              @include link();
+            }
+          }
+        }
+
+        &-toggle {
+          @include link();
+        }
+      }
+    }
+
+    > main {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    > footer {
+      a.uk-link-reset {
+        @include link($important: true);
+      }
+    }
+  }
+}
+
+.uk-offcanvas-bar {
+  background-color: $global-muted-background;
+
+  .uk-close,
+  .uk-nav-primary > li > a {
+    @include link();
+  }
+}
+
+.uk-link-heading {
+  @include link($color: inherit);
+}
+
+.custom-text-indent {
+  text-indent: 4ch;
+}
+
+.opportunityContainer {
+  border-bottom: solid 2px $global-primary-background;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.uk-notification-message {
+  background-color: #80b4b4;
+  color: #ffffff;
+}

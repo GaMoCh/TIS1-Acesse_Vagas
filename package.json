@@ -1,0 +1,59 @@
+{
+  "name": "acesse_vagas",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GaMoCh/Acesse_Vagas"
+  },
+  "contributors": [
+    {
+      "name": "Alessandra Magalhães de Souza Lima",
+      "email": "alessandra.lima@sga.pucminas.br",
+      "url": "https://github.com/alemdesouza"
+    },
+    {
+      "name": "Gabriel Moreira Chaves",
+      "email": "gabriel.chaves.1200613@sga.pucminas.br",
+      "url": "https://github.com/GaMoCh"
+    },
+    {
+      "name": "Guilherme Oliveira Antônio",
+      "email": "gantonio@sga.pucminas.br",
+      "url": "https://github.com/guilhermegoa"
+    },
+    {
+      "name": "Ian Bittencourt Andrade Jacinto",
+      "email": "ian.andrade@sga.pucminas.br",
+      "url": "https://github.com/ianbandrade"
+    },
+    {
+      "name": "Ian Guelman",
+      "email": "ian.guelman@sga.pucminas.br",
+      "url": "https://github.com/ianguelman"
+    }
+  ],
+  "scripts": {
+    "format-all": "prettier --write \"**/*.{html,md,js,json,css,scss}\"",
+    "format-scripts": "prettier-eslint --write \"**/*.js\"",
+    "format-styles": "prettier-stylelint --write \"**/*.{css,scss}\""
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "uikit": "^3.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.17.0",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^10.0.1",
+    "stylelint-config-prettier": "^5.1.0",
+    "stylelint-prettier": "^1.0.7"
+  }
+}

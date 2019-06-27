@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="msapplication-TileColor" content="#2c858d" />
+    <meta name="msapplication-config" content="/assets/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#2c858d" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg" color="#2c858d" />
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
+    <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.min.css" />
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.js"></script>
+    <script src="/node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+    <script src="/node_modules/uikit/dist/js/uikit.min.js"></script>
+    <script src="/node_modules/uikit/dist/js/uikit-icons.min.js"></script>
+    <script src="/assets/js/firebase.js"></script>
+    <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/masks.js"></script>
+    <script src="/assets/js/registerCompany.js"></script>
+    <script src="/assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/vfs_fonts.js"></script>
+    <title>Acesse Vagas - Cadastro de empresa</title>
+    <style>
+      .small-form {
+        margin: 0 auto;
+        max-width: 800px;
+      }
+    </style>
+    <script>
+      $(document).ready(() => {
+        $('#botao-envio').on('click', function() {
+          const docDefinition = {
+            content: [
+              {
+                text: `Currículo`,
+                alignment: 'center',
+                style: 'header'
+              },
+              {
+                text: `Nome: ${$('#nome').val()}`,
+                style: 'subHeader'
+              },
+              {
+                text: `E-mail: ${$('#email').val()}`,
+                style: 'subHeader'
+              },
+              {
+                text: `Telefone: ${$('#telefone').val()}`,
+                style: 'subHeader'
+              },
+              {
+                text: `Cidade: ${$('#cidade').val()}`,
+                style: 'subHeader'
+              },
+              {
+                text: `Idade: ${$('#idade').val()}`,
+                style: 'subHeader'
+              },
+              {
+                text: 'Área de atuação:',
+                style: 'subHeader'
+              },
+              {
+                text: $('#atuacao').val(),
+                alignment: 'justify'
+              },
+              {
+                text: 'Formação:',
+                style: 'subHeader'
+              },
+              {
+                text: $('#formacao').val(),
+                alignment: 'justify'
+              }
+            ],
+            styles: {
+              header: {
+                fontSize: 36,
+                bold: true
+              },
+              subHeader: {
+                marginTop: 32,
+                fontSize: 14,
+                bold: true
+              }
+            }
+          };
+
+          pdfMake.createPdf(docDefinition).download('Currículo');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <nav class="uk-navbar-container" uk-navbar dropbar mode="click">
+        <!-- LOGO -->
+        <div class="uk-navbar-left">
+          <a class="uk-navbar-item uk-logo" href="/">
+            <img src="/assets/img/preloader.svg" alt="logo" width="36px" height="36px" />
+            <span>Acesse Vagas</span>
+          </a>
+        </div>
+
+        <!-- MENU -->
+        <div class="uk-navbar-center">
+          <ul class="uk-navbar-nav">
+            <li><a class="uk-navbar-item uk-visible@m" href="/pages/vagas">Vagas</a></li>
+            <li><a class="uk-navbar-item uk-visible@m" href="/pages/curriculo">Currículo</a></li>
+          </ul>
+        </div>
+
+        <!-- ENTRAR -->
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li id="signIn-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)">Entrar</a>
+              <div
+                class="uk-navbar-dropdown uk-width-1-1"
+                boundary="body"
+                boundary-align
+                pos="bottom-center"
+              >
+                <section class="uk-width-medium uk-margin-auto">
+                  <h2 class="uk-text-center">Entrar</h2>
+                  <form>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="user"></span>
+                      <input
+                        id="user-id"
+                        class="user-input uk-input uk-form-width-large"
+                        type="text"
+                        placeholder="Cpf / Cnpj"
+                      />
+                    </div>
+                    <div class="uk-inline uk-margin-small-bottom">
+                      <span class="uk-form-icon" uk-icon="lock"></span>
+                      <input
+                        id="password"
+                        class="uk-input uk-form-width-large"
+                        type="password"
+                        placeholder="Senha"
+                      />
+                    </div>
+                    <button
+                      id="login-button"
+                      class="uk-button uk-button-primary uk-margin-small-bottom uk-width-1-1"
+                      type="button"
+                    >
+                      <span>Entrar</span>
+                      <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    <a href="#" class="uk-display-block uk-link-reset uk-text-center">
+                      <span class="uk-text-small uk-text-primary">Esqueci minha senha</span>
+                    </a>
+                  </form>
+                </section>
+              </div>
+            </li>
+
+            <!-- CADASTRAR -->
+            <li id="signUp-link">
+              <a class="uk-navbar-item uk-parent uk-visible@m" href="javascript:void(0)"
+                >Cadastrar</a
+              >
+              <div
+                class="uk-navbar-dropdown uk-width-1-1"
+                boundary="body"
+                boundary-align
+                pos="bottom-center"
+              >
+                <section class="uk-column-1-2@l uk-column-divider uk-width-xxlarge uk-margin-auto">
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/empresa" class="uk-link-heading">
+                      <i class="fas fa-user-tie fa-4x uk-flex"></i>
+                      <br />
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como empresa</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                  <hr class="uk-hidden@l" />
+                  <div class="uk-flex uk-flex-center">
+                    <a href="/pages/cadastro/usuario" class="uk-link-heading">
+                      <i class="fas fa-user fa-4x uk-flex"></i>
+                      <br />
+                      <div class="uk-flex-inline uk-flex-column uk-flex-bottom">
+                        <h1>Cadastrar como usuário</h1>
+                        <i class="fas fa-arrow-right fa-2x"></i>
+                      </div>
+                    </a>
+                  </div>
+                </section>
+              </div>
+            </li>
+          </ul>
+          <a
+            class="uk-navbar-toggle uk-hidden@m"
+            href="javascript:void(0)"
+            uk-navbar-toggle-icon
+            uk-toggle
+            target="#offCanvas"
+          ></a>
+        </div>
+      </nav>
+      <section class="uk-navbar-dropbar"></section>
+    </header>
+
+    <!-- OFF-CANVAS -->
+    <section id="offCanvas" uk-offcanvas overlay flip mode="push">
+      <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+        <button class="uk-offcanvas-close uk-close-large" type="button" uk-close></button>
+        <nav class="uk-margin-auto-vertical">
+          <ul id="offCanvasMenu" class="uk-nav uk-nav-primary uk-nav-center"></ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- MAIN -->
+    <main>
+      <h1 class="uk-text-lead uk-text-center uk-align-center">Gerador de PDF</h1>
+
+      <form id="form" class="small-form uk-grid-small" uk-grid>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Nome Completo:</div>
+          <input id="nome" class="uk-input" type="text" />
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">E-mail:</div>
+          <input id="email" class="email-input uk-input" type="text" />
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Telefone:</div>
+          <input id="telefone" class="phone-input uk-input" type="text" />
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Cidade:</div>
+          <input id="cidade" class="uk-input" type="text" />
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Idade:</div>
+          <input id="idade" class="uk-input" type="number" />
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Área de atuação</div>
+          <textarea
+            id="atuacao"
+            class="uk-textarea"
+            name="description"
+            rows="5"
+            type="text"
+          ></textarea>
+        </div>
+        <div class="uk-width-1">
+          <div class="uk-form-label uk-text-meta">Formação</div>
+          <textarea
+            id="formacao"
+            class="uk-textarea"
+            name="description"
+            rows="5"
+            type="text"
+          ></textarea>
+        </div>
+        <button
+          id="botao-envio"
+          class="uk-button uk-button-default uk-width-1-2 uk-width-1-4@m uk-margin-small-bottom uk-align-center"
+          type="button"
+        >
+          Gerar
+        </button>
+      </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <section class="uk-section-muted uk-flex uk-flex-around uk-flex-wrap">
+        <!-- CONTATOS - REDES SOCIAIS -->
+        <section>
+          <!-- FACEBOOK -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="facebook"></a>
+          </div>
+
+          <!-- TWITTER -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="twitter"></a>
+          </div>
+
+          <!-- LINKEDIN -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="#" uk-icon="linkedin"></a>
+          </div>
+        </section>
+
+        <!-- CONTATOS - COMUNICAÇÃO -->
+        <section>
+          <!-- E-MAIL -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="mailto:foo@bar.com">
+              <span uk-icon="mail"></span>
+              <span>foo@bar.com</span>
+            </a>
+          </div>
+
+          <!-- TELEFONE -->
+          <div class="uk-inline uk-padding-small">
+            <a class="uk-link-reset" href="tel:+5531987654321">
+              <span uk-icon="receiver"></span>
+              <span>+55 31 98765-4321</span>
+            </a>
+          </div>
+        </section>
+      </section>
+    </footer>
+  </body>
+</html>
