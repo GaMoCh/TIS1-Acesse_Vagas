@@ -12571,6 +12571,20 @@ iframe.uk-cover {
   }
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #80b4b4;
+}
+
+* {
+  scrollbar-color: #80b4b4 #ffffff;
+  scrollbar-width: thin;
+}
+
 a * {
   color: inherit;
 }
@@ -12669,8 +12683,8 @@ html > body > main {
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -12730,4 +12744,9 @@ html > body > footer a.uk-link-reset:hover {
 
 .opportunityContainer:last-child {
   border-bottom: none;
+}
+
+.uk-notification-message {
+  background-color: #80b4b4;
+  color: #ffffff;
 }

@@ -27,7 +27,7 @@ function userState() {
     const greeting = $('<a />', {
       class: 'uk-navbar-item uk-visible@m',
       text: `OLÁ, ${username}`,
-      href: `/pages/painel/${getLoggedType(type)}`
+      href: 'javascript:void(0)'
     });
 
     $('#signIn-link').html(greeting);
@@ -68,7 +68,7 @@ function userState() {
 
 function responsiveMenu() {
   $('#offCanvasMenu').html('');
-  $('body > header ul').each(function(index) {
+  $('header ul').each(function(index) {
     $(this)
       .find('li > .uk-navbar-item')
       .each(function() {

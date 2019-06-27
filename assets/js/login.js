@@ -17,8 +17,7 @@ $(document).ready(() => {
     UIkit.notification.closeAll();
 
     UIkit.notification(message.get(0).outerHTML, {
-      status: 'danger',
-      pos: 'top-right'
+      pos: 'top-center'
     });
   };
 

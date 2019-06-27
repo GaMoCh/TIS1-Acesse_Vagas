@@ -2,11 +2,25 @@
 
 $(document).ready(() => {
   const onOpportunityCreatedSuccessfully = () => {
-    $('form')[0].reset();
-    location.reload();
+    $('form').trigger('reset');
+
+    const message = $('<span />', {
+      class: 'uk-display-block uk-text-center',
+      text: 'Vaga cadastrada'
+    });
+
+    UIkit.notification.closeAll();
+
+    UIkit.notification(message.get(0).outerHTML, {
+      pos: 'top-center'
+    });
+
+    setTimeout(() => {
+      location.href = `${location.origin}/`;
+    }, 2000);
   };
 
-  const onOpportunityCreatedError = (error) => {};
+  const onOpportunityCreatedError = (error) => { };
 
   const createOpportunityOnDatabase = (opportunityData) => {
     return new Promise((resolve, reject) => {
@@ -35,7 +49,7 @@ $(document).ready(() => {
       }, {});
 
     createOpportunityOnDatabase(formData)
-      .then(onOpportunityCreatedSuccessfully)
-      .catch(onOpportunityCreatedError);
+      .then(() => onOpportunityCreatedSuccessfully())
+      .catch((error) => onOpportunityCreatedError(error));
   });
 });

@@ -2,7 +2,22 @@
 
 $(document).ready(() => {
   const onUserCreatedSuccessfully = () => {
-    location.href = `${location.origin}/`;
+    $('form').trigger('reset');
+
+    const message = $('<span />', {
+      class: 'uk-display-block uk-text-center',
+      text: 'Empresa cadastrada'
+    });
+
+    UIkit.notification.closeAll();
+
+    UIkit.notification(message.get(0).outerHTML, {
+      pos: 'top-center'
+    });
+
+    setTimeout(() => {
+      location.href = `${location.origin}/`;
+    }, 2000);
   };
 
   const onUserCreatedError = (error) => {};

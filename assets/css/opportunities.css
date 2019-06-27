@@ -1,0 +1,28 @@
+#opportunityList .opportunityImage {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  #opportunityList .opportunityImage {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #opportunityList {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+
+#opportunityList {
+  margin-bottom: 70px;
+}
+
+.opportunityContainer {
+  border-bottom: solid 2px rgba(44, 133, 141, 0.2);
+}
+
+.opportunityContainer:last-child {
+  border-bottom: none;
+}
