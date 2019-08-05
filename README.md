@@ -11,7 +11,7 @@ ___
 
 # Solution project: 
 
-![](assets/img/Processo.png)
+![](assets/img/projeto_de_solucao.png)
 
 ___
 
