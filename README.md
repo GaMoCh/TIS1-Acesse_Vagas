@@ -1,6 +1,6 @@
 # Acesse Vagas 
 
-# Purpose:
+## Purpose:
 
 Establishment of a direct channel between
 professionals with disabilities and vacancies mandatory hiring.
@@ -9,13 +9,13 @@ View attendance at job openings by the disabled professional with the profile re
 <br>
 ___
 
-# Solution project: 
+## Solution project: 
 
-![](assets/img/projeto_de_solucao.png)
+![Projeto Solução](assets/img/projeto_de_solucao.png)
 
 ___
 
-# Law
+## Law
 
 It is noteworthy that, in 1990, Brazilian legislation established the obligation of private companies, from one hundred (100) employees to fill a portion of their positions with people with disabilities. This obligation is also known as the Quota Law (Article 93 of Law No. 8.213/90). 
 
