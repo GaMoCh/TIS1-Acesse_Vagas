@@ -6,7 +6,6 @@ Establishment of a direct channel between
 professionals with disabilities and vacancies mandatory hiring.
 
 View attendance at job openings by the disabled professional with the profile required for each employer as well as presentation of the adaptations offered for the performance of duties.
-<br>
 ___
 
 ## Solution project: 
@@ -27,4 +26,3 @@ The legal reserve of the quota depends on the general number of employees that t
 | 201-500           | 3%            |
 | 501-1000          | 4%            |
 | 1001 or more      | 5%            |
-
